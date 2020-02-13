@@ -5,18 +5,16 @@ const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 const questions = {};
-questions["기간"] = "2019.03 - 2020.02\n(1년 활동 후 수료증 발급)";
+questions["기간"] = "2020.03 - 2020.12(예정)";
 questions["대상"] =
   "명지대 인문캠퍼스 재학생/휴학생 중 웹 서비스를 만들고 싶은 사람 누구나!!\n\n1년 동안 꾸준히, 열심히, 열정적으로 활동 할 수 있는 사람을 모집합니다!!";
-questions["모집"] =
-  "1차 서류 접수 기간\n2019.02.20 – 2019.03.07\n2차 면접\n2019.03.09 – 2019.03.12\n결과 발표\n2019.03.13";
-questions["활동"] =
-  "HTML & CSS (Bootstrap)\nPython\nDjango 를 이용한 웹사이트 개발\n주 1회 또는 2회 세션 진행";
+questions["모집"] = "예정된 모집 일정이 없습니다.";
+questions["활동"] = "8기 커리큘럼 미정\n주 1회 또는 2회 세션 진행 예정";
 questions["지원"] = "지원 기간이 아닙니다.";
 questions["문의"] =
   "자세한 문의는 카카오톡 플러스친구(@likelionmyongji)를 통해 주시면 감사하겠습니다.";
-questions["mju"] =
-  "■□□□■\n■■□■■\n■□■□■\n■□□□■\n■□□□■\n□□□□□\n□□□□■\n□□□□■\n□□□□■\n■□□□■\n□■■■□\n□□□□□\n■□□□■\n■□□□■\n■□□□■\n■□□□■\n□■■■□\n";
+questions["멋탈!"] =
+  "⊂_ヽ\n      ＼＼ Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 / 두둠칫\n    / 　/|\n   ( 　(ヽ\n    |　|、＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ";
 
 exports.handler = (event, context, callback) => {
   console.log("Received event:", JSON.stringify(event, null, 2));
