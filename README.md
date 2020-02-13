@@ -7,7 +7,11 @@
   likelionMJU Bot
 </h1>
 
-likelionMJU Bot is a simple facebook messenger bot to introduce university club;[likelionMJU](https://github.com/likelionmju)
+likelionMJU Bot is a simple facebook messenger bot to introduce university club, using AWS services.
+
+## 🔍 Overview
+
+<img alt="architecture" src="https://likelionmju-serverless-bot-bucket.s3.ap-northeast-2.amazonaws.com/assets/images/architecture.png">
 
 ## 🧐 What's inside?
 
