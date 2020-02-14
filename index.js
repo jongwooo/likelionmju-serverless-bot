@@ -14,7 +14,7 @@ questions["지원"] = "지원 기간이 아닙니다.";
 questions["문의"] =
   "자세한 문의는 카카오톡 플러스친구(@likelionmyongji)를 통해 주시면 감사하겠습니다.";
 questions["멋탈!"] =
-  "⊂_ヽ\n      ＼＼ Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 / 두둠칫\n    / 　/|\n   ( 　(ヽ\n    |　|、＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ";
+  "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   ( 　(ヽ\n    |　|、＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ";
 
 exports.handler = (event, context, callback) => {
   console.log("Received event:", JSON.stringify(event, null, 2));
