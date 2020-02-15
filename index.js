@@ -84,7 +84,39 @@ const sendMessage = (recipientId, receviedMessage) => {
           id: recipientId
         },
         message: {
-          text: messageText
+          text: messageText,
+          quick_replies: [
+            {
+              content_type: "text",
+              title: "기간",
+              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_TERM"
+            },
+            {
+              content_type: "text",
+              title: "대상",
+              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_TARGET"
+            },
+            {
+              content_type: "text",
+              title: "모집",
+              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RECRUIT"
+            },
+            {
+              content_type: "text",
+              title: "활동",
+              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTIVITYS"
+            },
+            {
+              content_type: "text",
+              title: "지원",
+              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_APPLY"
+            },
+            {
+              content_type: "text",
+              title: "문의",
+              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_QUESTIONS"
+            }
+          ]
         }
       }
     },
