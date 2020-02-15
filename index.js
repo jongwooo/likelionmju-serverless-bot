@@ -99,7 +99,7 @@ const sendMessage = (recipientId, receviedMessage) => {
         }
       }
     },
-    function(error, response, body) {
+    (error, response, body) => {
       if (error) {
         console.log("Error sending message to user: " + error);
       } else if (response.body.error) {
