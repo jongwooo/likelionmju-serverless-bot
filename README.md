@@ -7,7 +7,22 @@
   likelionMJU Bot
 </h1>
 
-likelionMJU Bot is a simple facebook messenger bot to introduce [likelionMJU](https://github.com/likelionmju), using AWS services.
+<h3 align="center">
+  📬⚙️🤖
+</h3>
+
+<h3 align="center">
+  Facebook Serverless Messenger Bot
+</h3>
+
+<p align="center">
+  likelionMJU Bot is a simple facebook messenger bot to introduce <a href="https://github.com/likelionmju">likelionMJU</a>, using AWS services.
+</p>
+
+
+<p align="center">
+  <img alt="mockup" src="https://likelionmju-serverless-bot-bucket.s3.ap-northeast-2.amazonaws.com/assets/images/mockup.png">
+</p>
 
 ## 🔍 Overview
 
@@ -36,3 +51,8 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 5. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 6. **`README.md`**: A text file containing useful reference information about your project.
+
+
+## 📝 License
+
+Licensed under the [MIT License](LICENSE).
