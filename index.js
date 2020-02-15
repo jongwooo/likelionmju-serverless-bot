@@ -17,13 +17,17 @@ questions["지원"] =
 questions["문의"] =
   "자세한 문의는 카카오톡 플러스친구(@likelionmyongji)를 통해 주시면 감사하겠습니다.";
 questions["멋탈!"] =
-  "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   ( 　(ヽ\n    |　|、＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ";
+  "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   (  (ヽ\n    |　|、 ＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ";
 
 exports.handler = (event, context, callback) => {
   console.log("Received event:", JSON.stringify(event, null, 2));
 
   let method = event["httpMethod"];
-  let response = "";
+  let response = {
+    statusCode: null,
+    body: null,
+    headers: { "Content-Type": "application/json" }
+  };
   let queryparams = event["queryStringParameters"];
 
   if (method === "GET") {
@@ -32,39 +36,45 @@ exports.handler = (event, context, callback) => {
       queryparams["hub.mode"] === "subscribe" &&
       queryparams["hub.verify_token"] === VERIFY_TOKEN
     ) {
-      response = {
-        statusCode: "200",
-        body: queryparams["hub.challenge"],
-        headers: { "Content-Type": "application/json" }
-      };
+      response.statusCode = "200";
+      response.body = queryparams["hub.challenge"];
     } else {
-      response = {
-        statusCode: "401",
-        body: "Incorrect verify token",
-        headers: { "Content-Type": "application/json" }
-      };
+      response.statusCode = "401";
+      response.body = "Incorrect verify token";
     }
-  } else {
-    if (method === "POST") {
-      /* TODO: POST */
+  } else if (method === "POST") {
+    /* TODO: POST */
+    try {
       let bodyEvent = JSON.parse(event["body"]);
       let messagingEvent = bodyEvent.entry[0].messaging[0];
 
-      sendMessage(messagingEvent.sender.id, messagingEvent.message.text);
+      if (messagingEvent.message && messagingEvent.message.text) {
+        sendMessage(messagingEvent.sender.id, messagingEvent.message.text);
+      }
+      response.statusCode = "200";
+      response.body = "Success";
+    } catch (error) {
+      console.log(error);
+      response.statusCode = "500";
+      response.body = "Internal server error";
     }
-    response = {
-      statusCode: "200",
-      body: "Success",
-      headers: { "Content-Type": "application/json" }
-    };
   }
   callback(null, response);
 };
 
 const sendMessage = (recipientId, receviedMessage) => {
   let messageText = "";
+  let quickReplies = [];
 
   for (let token in questions) {
+    if (token !== "멋탈!") {
+      quickReplies.push({
+        content_type: "text",
+        title: token,
+        payload: `DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_${token}`
+      });
+    }
+
     if (receviedMessage.includes(token)) {
       messageText += questions[token] + "\n\n";
     }
@@ -77,7 +87,7 @@ const sendMessage = (recipientId, receviedMessage) => {
 
   request(
     {
-      url: `https://graph.facebook.com/v2.6/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
+      url: `https://graph.facebook.com/v3.2/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
       method: "POST",
       json: {
         recipient: {
@@ -85,38 +95,7 @@ const sendMessage = (recipientId, receviedMessage) => {
         },
         message: {
           text: messageText,
-          quick_replies: [
-            {
-              content_type: "text",
-              title: "기간",
-              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_TERM"
-            },
-            {
-              content_type: "text",
-              title: "대상",
-              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_TARGET"
-            },
-            {
-              content_type: "text",
-              title: "모집",
-              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RECRUIT"
-            },
-            {
-              content_type: "text",
-              title: "활동",
-              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTIVITYS"
-            },
-            {
-              content_type: "text",
-              title: "지원",
-              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_APPLY"
-            },
-            {
-              content_type: "text",
-              title: "문의",
-              payload: "DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_QUESTIONS"
-            }
-          ]
+          quick_replies: quickReplies
         }
       }
     },
