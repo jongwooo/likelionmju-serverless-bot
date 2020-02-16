@@ -48,8 +48,10 @@ exports.handler = (event, context, callback) => {
       let messagingEvent = bodyEvent.entry[0].messaging[0];
 
       if (messagingEvent.message && messagingEvent.message.text) {
-        sendMessage(messagingEvent.sender.id, messagingEvent.message.text);
+        sendDots(messagingEvent.sender.id);
+        sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
       }
+
       response.statusCode = "200";
       response.body = "Success";
     } catch (error) {
@@ -61,9 +63,18 @@ exports.handler = (event, context, callback) => {
   callback(null, response);
 };
 
-const sendMessage = (recipientId, receviedMessage) => {
+const sendDots = recipientId => {
+  let dots = {
+    recipient: { id: recipientId },
+    sender_action: "typing_on"
+  };
+  sendMessageApi(dots);
+};
+
+const sendTextMessage = (recipientId, receviedMessage) => {
   let messageText = "";
   let quickReplies = [];
+  let json = {};
 
   for (let token in questions) {
     if (token !== "멋탈!") {
@@ -84,19 +95,32 @@ const sendMessage = (recipientId, receviedMessage) => {
       "안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n기간, 대상, 모집, 활동, 지원, 문의\n중에서 원하는 키워드를 넣어서\n질문해주세요.";
   }
 
+  json = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: messageText,
+      quick_replies: quickReplies
+    }
+  };
+  sendMessageApi(json);
+};
+
+const sendMediaMessage = (recipientId, url, type) => {
+  let json = {
+    recipient: { id: recipientId },
+    message: { attachment: { type: type, payload: { url: url } } }
+  };
+  sendMessageApi(json);
+};
+
+const sendMessageApi = messageObject => {
   request(
     {
       url: `https://graph.facebook.com/v3.2/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
       method: "POST",
-      json: {
-        recipient: {
-          id: recipientId
-        },
-        message: {
-          text: messageText,
-          quick_replies: quickReplies
-        }
-      }
+      json: messageObject
     },
     (error, response, body) => {
       if (error) {
