@@ -118,7 +118,8 @@ const sendMediaMessage = (recipientId, url, type) => {
       attachment: {
         type: type,
         payload: {
-          url: url
+          url: url,
+          is_reusable: true
         }
       }
     }
