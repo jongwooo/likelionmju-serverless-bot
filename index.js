@@ -31,13 +31,15 @@ exports.handler = (event, context, callback) => {
 
   if (method === "GET") {
     /* TODO: GET */
-    if (
-      queryparams["hub.mode"] === "subscribe" &&
-      queryparams["hub.verify_token"] === VERIFY_TOKEN
-    ) {
-      response.statusCode = "200";
-      response.body = queryparams["hub.challenge"];
-    } else {
+    try {
+      if (
+        queryparams["hub.mode"] === "subscribe" &&
+        queryparams["hub.verify_token"] === VERIFY_TOKEN
+      ) {
+        response.statusCode = "200";
+        response.body = queryparams["hub.challenge"];
+      }
+    } catch (error) {
       response.statusCode = "401";
       response.body = "Incorrect verify token";
     }
@@ -109,8 +111,17 @@ const sendTextMessage = (recipientId, receviedMessage) => {
 
 const sendMediaMessage = (recipientId, url, type) => {
   let json = {
-    recipient: { id: recipientId },
-    message: { attachment: { type: type, payload: { url: url } } }
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: type,
+        payload: {
+          url: url
+        }
+      }
+    }
   };
   sendMessageApi(json);
 };
