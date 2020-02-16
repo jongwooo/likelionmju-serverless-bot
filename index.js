@@ -64,11 +64,11 @@ exports.handler = (event, context, callback) => {
 };
 
 const sendDots = recipientId => {
-  let dots = {
+  let json = {
     recipient: { id: recipientId },
     sender_action: "typing_on"
   };
-  sendMessageApi(dots);
+  sendMessageApi(json);
 };
 
 const sendTextMessage = (recipientId, receviedMessage) => {
