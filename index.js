@@ -129,7 +129,7 @@ const sendMediaMessage = (recipientId, url, type) => {
 const sendMessageApi = messageObject => {
   request(
     {
-      url: `https://graph.facebook.com/v3.2/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
+      url: `https://graph.facebook.com/v6.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
       method: "POST",
       json: messageObject
     },
