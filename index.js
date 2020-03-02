@@ -57,7 +57,7 @@ exports.handler = (event, context, callback) => {
       response.statusCode = "200";
       response.body = "Success";
     } catch (error) {
-      console.log(error);
+      console.error(`Internal server error: ${error}`);
       response.statusCode = "500";
       response.body = "Internal server error";
     }
@@ -136,9 +136,9 @@ const sendMessageApi = messageObject => {
     },
     (error, response, body) => {
       if (error) {
-        console.log("Error sending message to user: " + error);
+        console.error(`Error sending message to user: ${error}`);
       } else if (response.body.error) {
-        console.log("Error sending message to user: " + response.body.error);
+        console.error(`Error sending message to user: ${response.body.error}`);
       }
     }
   );
