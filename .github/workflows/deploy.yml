@@ -1,8 +1,8 @@
-name: deploy to lambda
+name: Deploy to lambda
 on: [push]
 jobs:
   deploy_source:
-    name: build and deploy lambda
+    name: Build and deploy lambda
     strategy:
       matrix:
         node-version: [12.x]
@@ -23,7 +23,7 @@ jobs:
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r ./bundle.zip ./
-      - name: default deploy
+      - name: Default deploy
         uses: appleboy/lambda-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
