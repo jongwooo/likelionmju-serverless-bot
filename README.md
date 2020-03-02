@@ -27,7 +27,7 @@
     <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/jongwooo/likelionmju-serverless-bot">
   </a>
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions">
-    <img alt="GitHub Workflow Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/deploy%20to%20lambda/badge.svg">
+    <img alt="GitHub Workflow Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/Deploy%20to%20lambda/badge.svg">
   </a>
 </p>
 
