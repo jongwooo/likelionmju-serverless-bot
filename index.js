@@ -110,24 +110,6 @@ const sendTextMessage = (recipientId, receviedMessage) => {
   sendMessageApi(json);
 };
 
-const sendMediaMessage = (recipientId, url, type) => {
-  let json = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-      attachment: {
-        type: type,
-        payload: {
-          url: url,
-          is_reusable: true
-        }
-      }
-    }
-  };
-  sendMessageApi(json);
-};
-
 const sendMessageApi = messageObject => {
   request(
     {
