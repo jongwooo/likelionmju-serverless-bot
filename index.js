@@ -40,6 +40,7 @@ exports.handler = (event, context, callback) => {
         response.body = queryparams["hub.challenge"];
       }
     } catch (error) {
+      console.error(`Incorrect verify token: ${error}`);
       response.statusCode = "401";
       response.body = "Incorrect verify token";
     }
