@@ -11,7 +11,7 @@ jobs:
 
     steps: 
       - name: npm install
-        run: npm install
+        run: npm ci
       - name: Run test code
         run: npm test
       - name: If fail
