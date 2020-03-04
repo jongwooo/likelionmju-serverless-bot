@@ -23,6 +23,7 @@
   <a href="LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue">
   </a>
+  
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions">
     <img alt="GitHub Workflow Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/Deploy%20to%20lambda/badge.svg">
   </a>
