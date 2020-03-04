@@ -16,8 +16,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install
-        run: |
-          npm ci
+        run: npm ci
+      - name: lint
+        run: npm run lint
       - name: Run test code
         env:
           PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
