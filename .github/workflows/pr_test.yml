@@ -9,10 +9,21 @@ jobs:
       matrix:
         node-version: [12.x]
 
-    steps: 
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: npm install
-        run: npm ci
+        run: |
+          npm ci
       - name: Run test code
+        env:
+          PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
+          VERIFY_TOKEN: ${{ secrets.VERIFY_TOKEN }}
+          TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
+          CI: true
         run: npm test
       - name: If fail
         uses: actions/github-script@0.2.0
