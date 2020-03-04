@@ -1,36 +1,38 @@
 {
-  "name": "likelionmju-serverless-bot",
-  "version": "1.0.0",
-  "description": "likelionMJU Bot is a simple facebook messenger bot to introduce university club;likelionMJU",
-  "main": "index.js",
-  "scripts": {
-    "lint": "eslint .",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jongwooo/likelionmju-serverless-bot"
-  },
-  "keywords": [
-    "facebook",
-    "messenger",
-    "chatbot",
-    "serverless"
-  ],
-  "author": "@jongwooo",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jongwooo/likelionmju-serverless-bot/issues"
-  },
-  "homepage": "https://m.me/likelionMJU",
-  "dependencies": {
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1"
-  }
+	"name": "likelionmju-serverless-bot",
+	"version": "1.0.0",
+	"description": "likelionMJU Bot is a simple facebook messenger bot to introduce university club;likelionMJU",
+	"main": "index.js",
+	"scripts": {
+		"format": "prettier --check  \"**/*.{md,js,json,yml}\"",
+		"lint": "eslint .",
+		"prettier": "prettier --write  \"**/*.{md,js,json,yml}\"",
+		"test": "jest"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jongwooo/likelionmju-serverless-bot"
+	},
+	"keywords": [
+		"facebook",
+		"messenger",
+		"chatbot",
+		"serverless"
+	],
+	"author": "@jongwooo",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/jongwooo/likelionmju-serverless-bot/issues"
+	},
+	"homepage": "https://m.me/likelionMJU",
+	"dependencies": {
+		"request": "^2.88.2"
+	},
+	"devDependencies": {
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"jest": "^25.1.0",
+		"prettier": "^1.19.1"
+	}
 }
