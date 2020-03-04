@@ -15,12 +15,11 @@ questions["활동 계획"] =
   "1년 동안 나만의 서비스를 만들기 위한 창업 & 웹 프로그래밍 교육을 이수하게 됩니다!\n\n또한, 전국의 멋쟁이사자처럼 소속 학생들이 함께 하는 해커톤과 같은 이벤트에도 참여하게 됩니다.";
 questions["자세한 문의"] =
   "자세한 문의는 카카오톡 플러스\n친구(@likelionmyongji)를 통해 주시면 감사하겠습니다.";
+questions["Unit test"] = "Unit Testing with Jest";
 questions["멋탈!"] =
   "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   (  (ヽ\n    |　|、 ＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ";
 
 exports.handler = (event, context, callback) => {
-  console.log("Received event:", JSON.stringify(event, null, 2));
-
   let method = event["httpMethod"];
   let response = {
     statusCode: null,
@@ -53,7 +52,7 @@ exports.handler = (event, context, callback) => {
       if (messagingEvent.message && messagingEvent.message.text) {
         sendDots(messagingEvent.sender.id);
         sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
-      } 
+      }
 
       response.statusCode = "200";
       response.body = "Success";
@@ -64,6 +63,7 @@ exports.handler = (event, context, callback) => {
     }
   }
   callback(null, response);
+  return response;
 };
 
 const sendDots = recipientId => {
@@ -80,7 +80,7 @@ const sendTextMessage = (recipientId, receviedMessage) => {
   let json = {};
 
   for (let token in questions) {
-    if (token !== "멋탈!") {
+    if (token !== "Unit test" && token !== "멋탈!") {
       quickReplies.push({
         content_type: "text",
         title: token,
