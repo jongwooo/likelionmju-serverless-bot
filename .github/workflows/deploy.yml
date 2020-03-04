@@ -13,13 +13,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and build
+      - name: npm install and test, build
+        env:
+          PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
+          VERIFY_TOKEN: ${{ secrets.VERIFY_TOKEN }}
+          TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
+          CI: true
         run: |
           npm ci
           npm test
           npm run build --if-present
-        env:
-          CI: true
       - name: zip
         uses: montudor/action-zip@v0.1.0
         with:
