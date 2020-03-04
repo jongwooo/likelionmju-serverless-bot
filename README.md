@@ -46,10 +46,14 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     .
     ├── .github/workflows
     ├── node_modules
+    ├── .eslintrc.js
     ├── .gitignore
-    ├── index.js
+    ├── .prettierignore
+    ├── .prettierrc.js
     ├── LICENSE
     ├── README.md
+    ├── index.js
+    ├── index.test.js
     ├── package-lock.json
     └── package.json
 
@@ -57,17 +61,25 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 2.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+3.  **`.eslintrc.js`**: This file is the configuration of ESLint. ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
-4.  **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
+4.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-5.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
+5.  **`.prettierignore`**: This file tells Prettier which files it should not format for.
 
-6.  **`README.md`**: A text file containing useful reference information about your project.
+6.  **`.prettierrc.js`**: This file is the configuration of Prettier. This file allows you to format files within the directory.
 
-7.  **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+7.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
-8.  **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+8.  **`README.md`**: A text file containing useful reference information about your project.
+
+9.  **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
+
+10. **`index.test.js`**: This file is a Jest based code for testing a handler.
+
+11. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+12. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## 📝 License
 
