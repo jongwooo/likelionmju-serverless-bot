@@ -38,7 +38,7 @@ jobs:
             await github.pulls.createReview({
               ...context.repo,
               pull_number,
-              body:"Test Failed",
+              body:"An error has occurred. Please check your code and try again.",
               event: "REQUEST_CHANGES"
             })
             await github.pulls.update({
