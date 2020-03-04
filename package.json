@@ -4,6 +4,7 @@
   "description": "likelionMJU Bot is a simple facebook messenger bot to introduce university club;likelionMJU",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "jest"
   },
   "repository": {
