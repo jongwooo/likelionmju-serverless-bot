@@ -29,7 +29,7 @@ jobs:
           CI: true
         run: npm test
       - name: If fail
-        uses: actions/github-script@0.2.0
+        uses: actions/github-script@0.8.0
         with:
           github-token: ${{github.token}}
           script: |
