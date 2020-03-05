@@ -89,7 +89,7 @@ const sendTextMessage = (recipientId, receviedMessage) => {
 		}
 
 		if (receviedMessage.includes(token)) {
-			messageText += questions[token] + "\n\n";
+			messageText += `${questions[token]}\n\n`;
 		}
 	}
 
