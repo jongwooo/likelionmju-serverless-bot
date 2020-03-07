@@ -27,7 +27,7 @@
     <img alt="PR Test Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/PR%20Test/badge.svg">
   </a>
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions?query=workflow%3A%22Deploy+to+lambda%22">
-    <img alt="Deploy to lambda Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/Deploy%20to%20lambda/badge.svg">
+    <img alt="Deploy to Lambda Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/Deploy%20to%20Lambda/badge.svg">
   </a>
 </p>
 
