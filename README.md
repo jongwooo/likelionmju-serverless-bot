@@ -61,7 +61,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 2.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-3.  **`.eslintrc.js`**: This file is the configuration of ESLint. ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+3.  **`.eslintrc.js`**: This is a configuration file for [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
 4.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
