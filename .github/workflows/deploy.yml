@@ -38,5 +38,5 @@ jobs:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ap-northeast-2
-          function_name: likelionMJU_Bot
+          function_name: chatbot
           zip_file: bundle.zip
