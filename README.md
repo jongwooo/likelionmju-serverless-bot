@@ -93,6 +93,28 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 15. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
+## ✅ Testing
+
+### Creating New Tests
+
+Check out the [Jest documentation](https://jestjs.io/docs/en/snapshot-testing) for how to write more tests.
+
+### Running Tests
+
+To run Jest tests on the project, run `npm test` on the command line.
+
+## ❗ Code of Conduct
+
+I expect everyone participating in the contributing to abide by [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## 🤝 How to Contribute
+
+Check out [Contributing guide](CONTRIBUTING.md) for ideas on contributing and setup steps for getting our repositories up and running on your local machine.
+
+## 🐛 Bug reporting
+
+If you found a bug in this repository, please let me know through the [Issue](https://github.com/jongwooo/likelionmju-serverless-bot/issues).
+
 ## 📝 License
 
 Licensed under the [MIT License](LICENSE).
