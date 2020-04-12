@@ -1,7 +1,3 @@
-
-# Created by https://www.gitignore.io/api/node,macos,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=node,macos,visualstudiocode
-
 ### macOS ###
 # General
 .DS_Store
@@ -138,13 +134,10 @@ temp/
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
 
-# End of https://www.gitignore.io/api/node,macos,visualstudiocode
+### WebStorm ###
+.idea/
