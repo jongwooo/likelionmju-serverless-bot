@@ -21,7 +21,7 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img alt="GitHub" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue&style=flat-square">
+    <img alt="GitHub" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue">
   </a>
   <a href="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot">
     <img alt="Codecov coverage reports" src="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot/branch/master/graph/badge.svg" />
