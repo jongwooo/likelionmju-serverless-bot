@@ -30,7 +30,7 @@ jobs:
         uses: iansu/codecov-action-node@v1.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: /coverage/clover.xml
+          file: coverage/clover.xml
           flags: unittests
           name: codecov-umbrella
       - name: Run npm build
