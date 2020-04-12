@@ -21,7 +21,10 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img alt="GitHub" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue">
+    <img alt="GitHub" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue&style=flat-square">
+  </a>
+  <a href="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot">
+    <img alt="Codecov coverage reports" src="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot/branch/master/graph/badge.svg" />
   </a>
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions?query=workflow%3A%22PR+Test%22">
     <img alt="PR Test Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/PR%20Test/badge.svg">
@@ -54,6 +57,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── README.md
     ├── index.js
     ├── index.test.js
+    ├── jest.config.js
     ├── package-lock.json
     └── package.json
 
@@ -77,9 +81,11 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 10. **`index.test.js`**: This file is a Jest based code for testing a handler.
 
-11. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+11. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-12. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+12. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+13. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## 📝 License
 
