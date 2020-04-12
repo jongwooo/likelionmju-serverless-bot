@@ -27,7 +27,7 @@ jobs:
           CI: true
         run: npm test
       - name: Upload coverage reports to Codecov
-        uses: iansu/codecov-action-node@v1
+        uses: iansu/codecov-action-node@v1.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Run npm build
