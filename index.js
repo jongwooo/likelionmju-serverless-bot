@@ -118,9 +118,9 @@ const sendMessageApi = messageObject => {
 		},
 		function(error, response) {
 			if (error) {
-				console.error(`Error sending message to user: ${error}`);
+				console.error(`Error: ${error}`);
 			} else if (response.body.error) {
-				console.error(`Error sending message to user: ${response.body.error}`);
+				console.error(`Response Error: ${response.body.error}`);
 			}
 		}
 	);
