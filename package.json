@@ -7,7 +7,7 @@
 		"format": "prettier --check  \"**/*.{md,js,json,yml}\"",
 		"lint": "eslint .",
 		"prettier": "prettier --write  \"**/*.{md,js,json,yml}\"",
-		"test": "jest"
+		"test": "jest --config jestconfig.json"
 	},
 	"repository": {
 		"type": "git",
