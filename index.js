@@ -29,21 +29,28 @@ exports.handler = (event, context, callback) => {
 
 	if (method === "GET") {
 		/* TODO: GET */
-		try {
-			let hubMode = queryparams["hub.mode"];
-			let hubVerifyToken = queryparams["hub.verify_token"];
-			let hubChallenge = queryparams["hub.challenge"];
-
-			if (hubMode === "subscribe" && hubVerifyToken === VERIFY_TOKEN) {
-				response.statusCode = "200";
-				response.body = hubChallenge;
-			} else if (hubVerifyToken !== VERIFY_TOKEN && hubMode === "subscribe") {
-				console.error(`Incorrect verify token`);
-				response.statusCode = "401";
-				response.body = "Incorrect verify token";
-			}
-		} catch (error) {
-			console.error(`Internal server error: ${error}`);
+		if (
+			queryparams["hub.mode"] === "subscribe" &&
+			queryparams["hub.verify_token"] === VERIFY_TOKEN
+		) {
+			response.statusCode = "200";
+			response.body = queryparams["hub.challenge"];
+		} else if (
+			queryparams["hub.mode"] === "subscribe" &&
+			queryparams["hub.verify_token"] !== VERIFY_TOKEN
+		) {
+			console.error(`Incorrect verify token`);
+			response.statusCode = "401";
+			response.body = "Incorrect verify token";
+		} else if (
+			queryparams["hub.mode"] !== "subscribe" &&
+			queryparams["hub.verify_token"] === VERIFY_TOKEN
+		) {
+			console.error(`Incorrect verify token`);
+			response.statusCode = "401";
+			response.body = "Incorrect verify token";
+		} else {
+			console.error(`Internal server error`);
 			response.statusCode = "500";
 			response.body = "Internal server error";
 		}
