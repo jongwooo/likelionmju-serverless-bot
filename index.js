@@ -33,26 +33,22 @@ exports.handler = (event, context, callback) => {
 			queryparams["hub.mode"] === "subscribe" &&
 			queryparams["hub.verify_token"] === VERIFY_TOKEN
 		) {
-			response.statusCode = "200";
-			response.body = queryparams["hub.challenge"];
+			response = responseGen("200", queryparams["hub.challenge"]);
 		} else if (
 			queryparams["hub.mode"] === "subscribe" &&
 			queryparams["hub.verify_token"] !== VERIFY_TOKEN
 		) {
 			console.error(`Incorrect verify token`);
-			response.statusCode = "401";
-			response.body = "Incorrect verify token";
+			response = responseGen("401", "Incorrect verify token");
 		} else if (
 			queryparams["hub.mode"] !== "subscribe" &&
 			queryparams["hub.verify_token"] === VERIFY_TOKEN
 		) {
 			console.error(`Precondition failed`);
-			response.statusCode = "412";
-			response.body = "Precondition failed";
+			response = responseGen("412", "Precondition failed");
 		} else {
 			console.error(`Internal server error`);
-			response.statusCode = "500";
-			response.body = "Internal server error";
+			response = responseGen("500", "Internal server error");
 		}
 	} else if (method === "POST") {
 		/* TODO: POST */
@@ -65,16 +61,22 @@ exports.handler = (event, context, callback) => {
 				sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
 			}
 
-			response.statusCode = "200";
-			response.body = "Success";
+			response = responseGen("200", "Success");
 		} catch (error) {
 			console.error(`Internal server error: ${error}`);
-			response.statusCode = "500";
-			response.body = "Internal server error";
+			response = responseGen("500", "Internal server error");
 		}
 	}
 	callback(null, response);
 	return response;
+};
+
+const responseGen = (statusCode, body) => {
+	return {
+		statusCode: statusCode,
+		body: body,
+		headers: { "Content-Type": "application/json" }
+	};
 };
 
 const sendDots = recipientId => {
