@@ -31,7 +31,7 @@ exports.handler = (event, context, callback) => {
 				queryparams["hub.verify_token"] === VERIFY_TOKEN
 			];
 
-			switch (status.join(" ")) {
+			switch (status.join(", ")) {
 				case "true, false":
 					response = responseGen("401", "Incorrect verify token");
 					break;
