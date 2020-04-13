@@ -37,7 +37,7 @@ exports.handler = (event, context, callback) => {
 			if (hubMode === "subscribe" && hubVerifyToken === VERIFY_TOKEN) {
 				response.statusCode = "200";
 				response.body = hubChallenge;
-			} else if (hubVerifyToken !== VERIFY_TOKEN) {
+			} else if (hubVerifyToken !== VERIFY_TOKEN && hubMode === "subscribe") {
 				console.error(`Incorrect verify token`);
 				response.statusCode = "401";
 				response.body = "Incorrect verify token";
