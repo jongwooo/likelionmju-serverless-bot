@@ -21,6 +21,15 @@ const getStatus401 = {
 	}
 };
 
+const getStatus412 = {
+	httpMethod: "GET",
+	queryStringParameters: {
+		"hub.verify_token": VERIFY_TOKEN,
+		"hub.mode": "not subscribe",
+		"hub.challenge": CHALLENGE_TOKEN
+	}
+};
+
 const getStatus500 = {
 	httpMethod: "GET",
 	queryStringParameters: {
@@ -89,6 +98,16 @@ test("GET::status 401", () => {
 			}
 		}).body
 	).toBe("Incorrect verify token");
+});
+
+test("GET::status 412", () => {
+	expect(
+		index.handler(getStatus412, null, function(isNull, res) {
+			if (!isNull) {
+				console.log(res);
+			}
+		}).body
+	).toBe("Precondition failed");
 });
 
 test("GET::status 500", () => {
