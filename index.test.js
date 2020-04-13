@@ -3,7 +3,11 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const TEST_USER_ID = process.env.TEST_USER_ID;
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString();
 
-const getStatus200 = {
+const getStatus200Case1 = {
+	httpMethod: "GET"
+};
+
+const getStatus200Case2 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		"hub.verify_token": VERIFY_TOKEN,
@@ -100,9 +104,19 @@ const postStatus500 = {
 };
 
 /* TODO: GET */
-test("GET::status 200", () => {
+test("GET::status 200 Case 1", () => {
 	expect(
-		index.handler(getStatus200, null, function(isNull, res) {
+		index.handler(getStatus200Case1, null, function(isNull, res) {
+			if (!isNull) {
+				console.log(res);
+			}
+		}).statusCode
+	).toBe("200");
+});
+
+test("GET::status 200 Case 2", () => {
+	expect(
+		index.handler(getStatus200Case2, null, function(isNull, res) {
 			if (!isNull) {
 				console.log(res);
 			}
