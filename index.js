@@ -20,35 +20,29 @@ questions["멋탈!"] =
 
 exports.handler = (event, context, callback) => {
 	let method = event["httpMethod"];
-	let response = {
-		statusCode: null,
-		body: null,
-		headers: { "Content-Type": "application/json" }
-	};
-	let queryparams = event["queryStringParameters"];
+	let response = {};
 
 	if (method === "GET") {
 		/* TODO: GET */
-		if (
-			queryparams["hub.mode"] === "subscribe" &&
-			queryparams["hub.verify_token"] === VERIFY_TOKEN
-		) {
-			response = responseGen("200", queryparams["hub.challenge"]);
-		} else if (
-			queryparams["hub.mode"] === "subscribe" &&
-			queryparams["hub.verify_token"] !== VERIFY_TOKEN
-		) {
-			console.error(`Incorrect verify token`);
-			response = responseGen("401", "Incorrect verify token");
-		} else if (
-			queryparams["hub.mode"] !== "subscribe" &&
-			queryparams["hub.verify_token"] === VERIFY_TOKEN
-		) {
-			console.error(`Precondition failed`);
-			response = responseGen("412", "Precondition failed");
+		if (event["queryStringParameters"]) {
+			let queryparams = event["queryStringParameters"];
+			let hubMode = queryparams["hub.mode"];
+			let hubVerifyToken = queryparams["hub.verify_token"];
+
+			if (hubMode === "subscribe" && hubVerifyToken === VERIFY_TOKEN) {
+				response = responseGen("200", queryparams["hub.challenge"]);
+			} else if (hubMode === "subscribe" && hubVerifyToken !== VERIFY_TOKEN) {
+				console.error(`Incorrect verify token`);
+				response = responseGen("401", "Incorrect verify token");
+			} else if (hubMode !== "subscribe" && hubVerifyToken === VERIFY_TOKEN) {
+				console.error(`Precondition failed`);
+				response = responseGen("412", "Precondition failed");
+			} else {
+				console.error(`Internal server error`);
+				response = responseGen("500", "Internal server error");
+			}
 		} else {
-			console.error(`Internal server error`);
-			response = responseGen("500", "Internal server error");
+			response = responseGen("200", "likelionMJU Bot");
 		}
 	} else if (method === "POST") {
 		/* TODO: POST */
