@@ -46,9 +46,9 @@ exports.handler = (event, context, callback) => {
 			queryparams["hub.mode"] !== "subscribe" &&
 			queryparams["hub.verify_token"] === VERIFY_TOKEN
 		) {
-			console.error(`Incorrect verify token`);
-			response.statusCode = "401";
-			response.body = "Incorrect verify token";
+			console.error(`Precondition failed`);
+			response.statusCode = "412";
+			response.body = "Precondition failed";
 		} else {
 			console.error(`Internal server error`);
 			response.statusCode = "500";
