@@ -26,20 +26,24 @@ exports.handler = (event, context, callback) => {
 		/* TODO: GET */
 		if (event["queryStringParameters"]) {
 			let queryparams = event["queryStringParameters"];
-			let hubMode = queryparams["hub.mode"];
-			let hubVerifyToken = queryparams["hub.verify_token"];
+			let status = [
+				queryparams["hub.mode"] === "subscribe",
+				queryparams["hub.verify_token"] === VERIFY_TOKEN
+			];
 
-			if (hubMode === "subscribe" && hubVerifyToken === VERIFY_TOKEN) {
-				response = responseGen("200", queryparams["hub.challenge"]);
-			} else if (hubMode === "subscribe" && hubVerifyToken !== VERIFY_TOKEN) {
-				console.error(`Incorrect verify token`);
-				response = responseGen("401", "Incorrect verify token");
-			} else if (hubMode !== "subscribe" && hubVerifyToken === VERIFY_TOKEN) {
-				console.error(`Precondition failed`);
-				response = responseGen("412", "Precondition failed");
-			} else {
-				console.error(`Internal server error`);
-				response = responseGen("500", "Internal server error");
+			switch (status.join(" ")) {
+				case "true, false":
+					response = responseGen("401", "Incorrect verify token");
+					break;
+				case "false, true":
+					response = responseGen("412", "Precondition failed");
+					break;
+				case "false, false":
+					response = responseGen("500", "Internal server error");
+					break;
+				default:
+					response = responseGen("200", queryparams["hub.challenge"]);
+					break;
 			}
 		} else {
 			response = responseGen("200", "likelionMJU Bot");
