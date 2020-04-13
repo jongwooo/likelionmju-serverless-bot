@@ -21,6 +21,15 @@ const getStatus401 = {
 	}
 };
 
+const getStatus500 = {
+	httpMethod: "GET",
+	queryStringParameters: {
+		// "hub.verify_token": VERIFY_TOKEN,
+		// "hub.mode": "subscribe",
+		// "hub.challenge": CHALLENGE_TOKEN
+	}
+};
+
 const postStatus200 = {
 	httpMethod: "POST",
 	body: JSON.stringify({
@@ -46,16 +55,16 @@ const postStatus500 = {
 	body: JSON.stringify({
 		entry: [
 			{
-				messaging: [
-					{
-						message: {
-							// text: "Unit test"
-						},
-						sender: {
-							id: TEST_USER_ID
-						}
-					}
-				]
+				// messaging: [
+				// 	{
+				// 		message: {
+				// 			text: "Unit test"
+				// 		},
+				// 		sender: {
+				// 			id: TEST_USER_ID
+				// 		}
+				// 	}
+				// ]
 			}
 		]
 	})
@@ -80,6 +89,16 @@ test("GET::status 401", () => {
 			}
 		}).body
 	).toBe("Incorrect verify token");
+});
+
+test("GET::status 500", () => {
+	expect(
+		index.handler(getStatus500, null, function(isNull, res) {
+			if (!isNull) {
+				console.log(res);
+			}
+		}).body
+	).toBe("Internal server error");
 });
 
 /* TODO: POST */
