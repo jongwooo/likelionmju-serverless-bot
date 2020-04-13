@@ -39,7 +39,7 @@ const getStatus500 = {
 	}
 };
 
-const postStatus200 = {
+const postStatus200Case1 = {
 	httpMethod: "POST",
 	body: JSON.stringify({
 		entry: [
@@ -48,6 +48,26 @@ const postStatus200 = {
 					{
 						message: {
 							text: "Unit test"
+						},
+						sender: {
+							id: TEST_USER_ID
+						}
+					}
+				]
+			}
+		]
+	})
+};
+
+const postStatus200Case2 = {
+	httpMethod: "POST",
+	body: JSON.stringify({
+		entry: [
+			{
+				messaging: [
+					{
+						message: {
+							text: "Test phrases not included in tokens"
 						},
 						sender: {
 							id: TEST_USER_ID
@@ -121,9 +141,19 @@ test("GET::status 500", () => {
 });
 
 /* TODO: POST */
-test("POST:: status 200", () => {
+test("POST:: status 200 Case 1", () => {
 	expect(
-		index.handler(postStatus200, null, function(isNull, res) {
+		index.handler(postStatus200Case1, null, function(isNull, res) {
+			if (!isNull) {
+				console.log(res);
+			}
+		}).body
+	).toBe("Success");
+});
+
+test("POST:: status 200 Case 2", () => {
+	expect(
+		index.handler(postStatus200Case2, null, function(isNull, res) {
 			if (!isNull) {
 				console.log(res);
 			}
