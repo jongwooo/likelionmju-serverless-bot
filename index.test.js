@@ -165,7 +165,7 @@ tests.push({
 });
 
 const unitTest = (method, statusCode, caseNum, object, toBe) => {
-	let testName = `${method}:: status ${statusCode} ${caseNum}`;
+	let testName = `${method}:: status ${statusCode}`;
 
 	if (caseNum) {
 		testName = `${testName} ${caseNum}`;
