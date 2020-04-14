@@ -111,7 +111,7 @@ const sendDots = recipientId => {
 	sendMessageApi(json);
 };
 
-const sendTextMessage = (recipientId, receviedMessage) => {
+const sendTextMessage = (recipientId, receivedMessage) => {
 	let messageText = "";
 	let quickReplies = [];
 	let json = {};
@@ -125,7 +125,7 @@ const sendTextMessage = (recipientId, receviedMessage) => {
 			});
 		}
 
-		if (receviedMessage.includes(token)) {
+		if (receivedMessage.includes(token)) {
 			messageText += `${questions[token]}\n\n`;
 		}
 	}
