@@ -33,13 +33,13 @@ exports.handler = (event, context, callback) => {
 
 			switch (status.join(", ")) {
 				case "true, false":
-					response = responseGen("401", "Incorrect verify token");
+					response = responseGen("401");
 					break;
 				case "false, true":
-					response = responseGen("412", "Precondition failed");
+					response = responseGen("412");
 					break;
 				case "false, false":
-					response = responseGen("500", "Internal server error");
+					response = responseGen("500");
 					break;
 				default:
 					response = responseGen("200", queryparams["hub.challenge"]);
@@ -59,10 +59,10 @@ exports.handler = (event, context, callback) => {
 				sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
 			}
 
-			response = responseGen("200", "Success");
+			response = responseGen("200");
 		} catch (error) {
 			console.error(`Internal server error: ${error}`);
-			response = responseGen("500", "Internal server error");
+			response = responseGen("500");
 		}
 	}
 	callback(null, response);
@@ -70,11 +70,35 @@ exports.handler = (event, context, callback) => {
 };
 
 const responseGen = (statusCode, body) => {
-	return {
-		statusCode: statusCode,
-		body: body,
+	let res = {
+		statusCode: "",
+		body: "",
 		headers: { "Content-Type": "application/json" }
 	};
+
+	if (body) {
+		res.statusCode = statusCode;
+		res.body = body;
+	} else {
+		res.statusCode = statusCode;
+
+		switch (statusCode) {
+			case "200":
+				res.body = "Success";
+				break;
+			case "401":
+				res.body = "Incorrect verify token";
+				break;
+			case "412":
+				res.body = "Precondition failed";
+				break;
+			default:
+				res.body = "Internal server error";
+				break;
+		}
+	}
+
+	return res;
 };
 
 const sendDots = recipientId => {
