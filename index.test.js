@@ -16,12 +16,39 @@ const getStatus200Case2 = {
 	}
 };
 
-const getStatus400 = {
+const getStatus400Case1 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		// "hub.verify_token": VERIFY_TOKEN,
 		// "hub.mode": "subscribe",
 		// "hub.challenge": CHALLENGE_TOKEN
+	}
+};
+
+const getStatus400Case2 = {
+	httpMethod: "GET",
+	queryStringParameters: {
+		// "hub.verify_token": VERIFY_TOKEN,
+		"hub.mode": "subscribe"
+		// "hub.challenge": CHALLENGE_TOKEN
+	}
+};
+
+const getStatus400Case3 = {
+	httpMethod: "GET",
+	queryStringParameters: {
+		// "hub.verify_token": VERIFY_TOKEN,
+		"hub.mode": "subscribe"
+		// "hub.challenge": CHALLENGE_TOKEN
+	}
+};
+
+const getStatus400Case4 = {
+	httpMethod: "GET",
+	queryStringParameters: {
+		// "hub.verify_token": VERIFY_TOKEN,
+		// "hub.mode": "subscribe",
+		"hub.challenge": CHALLENGE_TOKEN
 	}
 };
 
@@ -108,22 +135,43 @@ const tests = [];
 tests.push({
 	method: "GET",
 	statusCode: "200",
-	caseNum: "Case 1",
+	caseNum: 1,
 	object: getStatus200Case1,
 	toBeReturn: "likelionMJU Bot"
 });
 tests.push({
 	method: "GET",
 	statusCode: "200",
-	caseNum: "Case 2",
+	caseNum: 2,
 	object: getStatus200Case2,
 	toBeReturn: CHALLENGE_TOKEN
 });
 tests.push({
 	method: "GET",
 	statusCode: "400",
-	caseNum: null,
-	object: getStatus400,
+	caseNum: 1,
+	object: getStatus400Case1,
+	toBeReturn: "Bad request"
+});
+tests.push({
+	method: "GET",
+	statusCode: "400",
+	caseNum: 2,
+	object: getStatus400Case2,
+	toBeReturn: "Bad request"
+});
+tests.push({
+	method: "GET",
+	statusCode: "400",
+	caseNum: 3,
+	object: getStatus400Case3,
+	toBeReturn: "Bad request"
+});
+tests.push({
+	method: "GET",
+	statusCode: "400",
+	caseNum: 4,
+	object: getStatus400Case4,
 	toBeReturn: "Bad request"
 });
 tests.push({
@@ -145,14 +193,14 @@ tests.push({
 tests.push({
 	method: "POST",
 	statusCode: "200",
-	caseNum: "Case 1",
+	caseNum: 1,
 	object: postStatus200Case1,
 	toBeReturn: "Success"
 });
 tests.push({
 	method: "POST",
 	statusCode: "200",
-	caseNum: "Case 2",
+	caseNum: 2,
 	object: postStatus200Case2,
 	toBeReturn: "Success"
 });
@@ -168,7 +216,7 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 	let testName = `${method}:: status ${statusCode}`;
 
 	if (caseNum) {
-		testName = `${testName} ${caseNum}`;
+		testName = `${testName} Case ${caseNum}`;
 	}
 
 	test(testName, () => {
