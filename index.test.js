@@ -16,6 +16,15 @@ const getStatus200Case2 = {
 	}
 };
 
+const getStatus400 = {
+	httpMethod: "GET",
+	queryStringParameters: {
+		// "hub.verify_token": VERIFY_TOKEN,
+		// "hub.mode": "subscribe",
+		// "hub.challenge": CHALLENGE_TOKEN
+	}
+};
+
 const getStatus401 = {
 	httpMethod: "GET",
 	queryStringParameters: {
@@ -31,15 +40,6 @@ const getStatus412 = {
 		"hub.verify_token": VERIFY_TOKEN,
 		"hub.mode": "not subscribe",
 		"hub.challenge": CHALLENGE_TOKEN
-	}
-};
-
-const getStatus500 = {
-	httpMethod: "GET",
-	queryStringParameters: {
-		// "hub.verify_token": VERIFY_TOKEN,
-		// "hub.mode": "subscribe",
-		// "hub.challenge": CHALLENGE_TOKEN
 	}
 };
 
@@ -124,6 +124,16 @@ test("GET::status 200 Case 2", () => {
 	).toBe(CHALLENGE_TOKEN);
 });
 
+test("GET::status 400", () => {
+	expect(
+		index.handler(getStatus400, null, function(isNull, res) {
+			if (!isNull) {
+				console.log(res);
+			}
+		}).body
+	).toBe("Bad request");
+});
+
 test("GET::status 401", () => {
 	expect(
 		index.handler(getStatus401, null, function(isNull, res) {
@@ -142,16 +152,6 @@ test("GET::status 412", () => {
 			}
 		}).body
 	).toBe("Precondition failed");
-});
-
-test("GET::status 500", () => {
-	expect(
-		index.handler(getStatus500, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
-			}
-		}).body
-	).toBe("Internal server error");
 });
 
 /* TODO: POST */
