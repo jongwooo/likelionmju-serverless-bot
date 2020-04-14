@@ -164,7 +164,7 @@ tests.push({
 	toBeReturn: "Internal server error"
 });
 
-const unitTest = (method, statusCode, caseNum, object, toBe) => {
+const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 	let testName = `${method}:: status ${statusCode}`;
 
 	if (caseNum) {
@@ -178,7 +178,7 @@ const unitTest = (method, statusCode, caseNum, object, toBe) => {
 					console.error(res);
 				}
 			}).body
-		).toBe(toBe);
+		).toBe(toBeReturn);
 	});
 };
 
