@@ -28,8 +28,8 @@ const getStatus400Case1 = {
 const getStatus400Case2 = {
 	httpMethod: "GET",
 	queryStringParameters: {
-		// "hub.verify_token": VERIFY_TOKEN,
-		"hub.mode": "subscribe"
+		"hub.verify_token": VERIFY_TOKEN
+		// "hub.mode": "subscribe"
 		// "hub.challenge": CHALLENGE_TOKEN
 	}
 };
