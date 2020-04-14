@@ -103,84 +103,92 @@ const postStatus500 = {
 	})
 };
 
+const tests = [];
 /* TODO: GET */
-test("GET::status 200 Case 1", () => {
-	expect(
-		index.handler(getStatus200Case1, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).statusCode
-	).toBe("200");
+tests.push({
+	method: "GET",
+	statusCode: "200",
+	caseNum: "Case 1",
+	object: getStatus200Case1,
+	toBeReturn: "likelionMJU Bot"
 });
-
-test("GET::status 200 Case 2", () => {
-	expect(
-		index.handler(getStatus200Case2, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe(CHALLENGE_TOKEN);
+tests.push({
+	method: "GET",
+	statusCode: "200",
+	caseNum: "Case 2",
+	object: getStatus200Case2,
+	toBeReturn: CHALLENGE_TOKEN
 });
-
-test("GET::status 400", () => {
-	expect(
-		index.handler(getStatus400, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe("Bad request");
+tests.push({
+	method: "GET",
+	statusCode: "400",
+	caseNum: null,
+	object: getStatus400,
+	toBeReturn: "Bad request"
 });
-
-test("GET::status 401", () => {
-	expect(
-		index.handler(getStatus401, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe("Incorrect verify token");
+tests.push({
+	method: "GET",
+	statusCode: "401",
+	caseNum: null,
+	object: getStatus401,
+	toBeReturn: "Incorrect verify token"
 });
-
-test("GET::status 412", () => {
-	expect(
-		index.handler(getStatus412, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe("Precondition failed");
+tests.push({
+	method: "GET",
+	statusCode: "412",
+	caseNum: null,
+	object: getStatus412,
+	toBeReturn: "Precondition failed"
 });
 
 /* TODO: POST */
-test("POST:: status 200 Case 1", () => {
-	expect(
-		index.handler(postStatus200Case1, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe("Success");
+tests.push({
+	method: "POST",
+	statusCode: "200",
+	caseNum: "Case 1",
+	object: postStatus200Case1,
+	toBeReturn: "Success"
+});
+tests.push({
+	method: "POST",
+	statusCode: "200",
+	caseNum: "Case 2",
+	object: postStatus200Case2,
+	toBeReturn: "Success"
+});
+tests.push({
+	method: "POST",
+	statusCode: "500",
+	caseNum: null,
+	object: postStatus500,
+	toBeReturn: "Internal server error"
 });
 
-test("POST:: status 200 Case 2", () => {
-	expect(
-		index.handler(postStatus200Case2, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe("Success");
-});
+const unitTest = (method, statusCode, caseNum, object, toBe) => {
+	let testName = `${method}:: status ${statusCode} ${caseNum}`;
 
-test("POST:: status 500", () => {
-	expect(
-		index.handler(postStatus500, null, function(isNotNull, res) {
-			if (isNotNull) {
-				console.error(res);
-			}
-		}).body
-	).toBe("Internal server error");
-});
+	if (caseNum) {
+		testName = `${testName} ${caseNum}`;
+	}
+
+	test(testName, () => {
+		expect(
+			index.handler(object, null, function(isNotNull, res) {
+				if (isNotNull) {
+					console.error(res);
+				}
+			}).body
+		).toBe(toBe);
+	});
+};
+
+for (let i = 0; i < tests.length; i++) {
+	let testCase = tests[i];
+	unitTest(
+		testCase.method,
+		testCase.statusCode,
+		testCase.caseNum,
+		testCase.object,
+		testCase.toBeReturn
+	);
+}
