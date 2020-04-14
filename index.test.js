@@ -106,9 +106,9 @@ const postStatus500 = {
 /* TODO: GET */
 test("GET::status 200 Case 1", () => {
 	expect(
-		index.handler(getStatus200Case1, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(getStatus200Case1, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).statusCode
 	).toBe("200");
@@ -116,9 +116,9 @@ test("GET::status 200 Case 1", () => {
 
 test("GET::status 200 Case 2", () => {
 	expect(
-		index.handler(getStatus200Case2, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(getStatus200Case2, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe(CHALLENGE_TOKEN);
@@ -126,9 +126,9 @@ test("GET::status 200 Case 2", () => {
 
 test("GET::status 400", () => {
 	expect(
-		index.handler(getStatus400, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(getStatus400, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe("Bad request");
@@ -136,9 +136,9 @@ test("GET::status 400", () => {
 
 test("GET::status 401", () => {
 	expect(
-		index.handler(getStatus401, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(getStatus401, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe("Incorrect verify token");
@@ -146,9 +146,9 @@ test("GET::status 401", () => {
 
 test("GET::status 412", () => {
 	expect(
-		index.handler(getStatus412, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(getStatus412, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe("Precondition failed");
@@ -157,9 +157,9 @@ test("GET::status 412", () => {
 /* TODO: POST */
 test("POST:: status 200 Case 1", () => {
 	expect(
-		index.handler(postStatus200Case1, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(postStatus200Case1, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe("Success");
@@ -167,9 +167,9 @@ test("POST:: status 200 Case 1", () => {
 
 test("POST:: status 200 Case 2", () => {
 	expect(
-		index.handler(postStatus200Case2, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(postStatus200Case2, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe("Success");
@@ -177,9 +177,9 @@ test("POST:: status 200 Case 2", () => {
 
 test("POST:: status 500", () => {
 	expect(
-		index.handler(postStatus500, null, function(isNull, res) {
-			if (!isNull) {
-				console.log(res);
+		index.handler(postStatus500, null, function(isNotNull, res) {
+			if (isNotNull) {
+				console.error(res);
 			}
 		}).body
 	).toBe("Internal server error");
