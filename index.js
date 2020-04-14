@@ -25,10 +25,10 @@ exports.handler = (event, context, callback) => {
 	if (method === "GET") {
 		/* TODO: GET */
 		if (event["queryStringParameters"]) {
-			let queryparams = event["queryStringParameters"];
+			let queryString = event["queryStringParameters"];
 			let status = [
-				queryparams["hub.mode"] === "subscribe",
-				queryparams["hub.verify_token"] === VERIFY_TOKEN
+				queryString["hub.mode"] === "subscribe",
+				queryString["hub.verify_token"] === VERIFY_TOKEN
 			];
 
 			switch (status.join(", ")) {
@@ -42,7 +42,7 @@ exports.handler = (event, context, callback) => {
 					response = responseGen("412");
 					break;
 				default:
-					response = responseGen("200", queryparams["hub.challenge"]);
+					response = responseGen("200", queryString["hub.challenge"]);
 					break;
 			}
 		} else {
