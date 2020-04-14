@@ -61,7 +61,6 @@ exports.handler = (event, context, callback) => {
 
 			response = responseGen("200");
 		} catch (error) {
-			console.error(`Internal server error: ${error}`);
 			response = responseGen("500");
 		}
 	}
