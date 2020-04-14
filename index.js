@@ -28,21 +28,22 @@ exports.handler = (event, context, callback) => {
 			let queryString = event["queryStringParameters"];
 			let status = [
 				queryString["hub.mode"] === "subscribe",
-				queryString["hub.verify_token"] === VERIFY_TOKEN
+				queryString["hub.verify_token"] === VERIFY_TOKEN,
+				isNotEmpty(queryString["hub.challenge"])
 			];
 
 			switch (status.join(", ")) {
-				case "false, false":
-					response = responseGen("400");
+				case "true, true, true":
+					response = responseGen("200", queryString["hub.challenge"]);
 					break;
-				case "true, false":
+				case "true, false, true":
 					response = responseGen("401");
 					break;
-				case "false, true":
+				case "false, true, true":
 					response = responseGen("412");
 					break;
 				default:
-					response = responseGen("200", queryString["hub.challenge"]);
+					response = responseGen("400");
 					break;
 			}
 		} else {
@@ -66,6 +67,14 @@ exports.handler = (event, context, callback) => {
 	}
 	callback(null, response);
 	return response;
+};
+
+const isNotEmpty = queryString => {
+	return (
+		typeof queryString !== "undefined" &&
+		queryString !== null &&
+		queryString !== ""
+	);
 };
 
 const responseGen = (statusCode, body) => {
