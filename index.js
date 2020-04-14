@@ -32,14 +32,14 @@ exports.handler = (event, context, callback) => {
 			];
 
 			switch (status.join(", ")) {
+				case "false, false":
+					response = responseGen("400");
+					break;
 				case "true, false":
 					response = responseGen("401");
 					break;
 				case "false, true":
 					response = responseGen("412");
-					break;
-				case "false, false":
-					response = responseGen("500");
 					break;
 				default:
 					response = responseGen("200", queryparams["hub.challenge"]);
@@ -85,6 +85,9 @@ const responseGen = (statusCode, body) => {
 		switch (statusCode) {
 			case "200":
 				res.body = "Success";
+				break;
+			case "400":
+				res.body = "Bad request";
 				break;
 			case "401":
 				res.body = "Incorrect verify token";
