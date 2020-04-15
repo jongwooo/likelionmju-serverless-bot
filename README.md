@@ -97,7 +97,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 ### Creating New Tests
 
-Check out the [Jest documentation](https://jestjs.io/docs/en/snapshot-testing) for how to write more tests.
+Check out the [Jest documentation](https://jestjs.io/docs/en/using-matchers) for how to write more tests.
 
 ### Running Tests
 
