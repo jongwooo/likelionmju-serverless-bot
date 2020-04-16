@@ -55,7 +55,7 @@ exports.handler = (event, context, callback) => {
 			let bodyEvent = JSON.parse(event["body"]);
 			let messagingEvent = bodyEvent.entry[0].messaging[0];
 
-			if (messagingEvent.message && messagingEvent.message.text) {
+			if (messagingEvent.message.text && messagingEvent.sender.id) {
 				sendDots(messagingEvent.sender.id);
 				sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
 			}
