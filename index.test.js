@@ -221,7 +221,7 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 
 	test(testName, () => {
 		expect(
-			index.handler(object, null, function(isNotNull, res) {
+			index.handler(object, null, (isNotNull, res) => {
 				if (isNotNull) {
 					console.error(res);
 				}
