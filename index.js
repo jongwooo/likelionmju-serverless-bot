@@ -163,8 +163,8 @@ const sendMessageApi = messageObject => {
 			method: "POST",
 			json: messageObject
 		},
-		(error, response) => {
-			if (error) console.error(`Error: ${response}`);
+		error => {
+			if (error) throw new Error();
 		}
 	);
 };
