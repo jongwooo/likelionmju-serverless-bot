@@ -19,6 +19,7 @@ const getStatus200Case2 = {
 const getStatus400Case1 = {
 	httpMethod: "GET",
 	queryStringParameters: {
+		"hub.unused_params": "true"
 		// "hub.verify_token": VERIFY_TOKEN,
 		// "hub.mode": "subscribe",
 		// "hub.challenge": CHALLENGE_TOKEN
