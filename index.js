@@ -23,7 +23,6 @@ exports.handler = (event, context, callback) => {
 	let response = {};
 
 	if (method === "GET") {
-		/* TODO: GET */
 		if (event["queryStringParameters"]) {
 			let queryString = event["queryStringParameters"];
 			let status = [
@@ -53,7 +52,6 @@ exports.handler = (event, context, callback) => {
 			response = responseGen("200", "likelionMJU Bot");
 		}
 	} else if (method === "POST") {
-		/* TODO: POST */
 		try {
 			let bodyEvent = JSON.parse(event["body"]);
 			let messagingEvent = bodyEvent.entry[0].messaging[0];
@@ -133,9 +131,9 @@ const sendDots = recipientId => {
 const sendTextMessage = (recipientId, receivedMessage) => {
 	let messageText = "";
 	let quickReplies = [];
-	let json = {};
+	let json;
 
-	for (let token in questions) {
+	for (const token in questions) {
 		if (token !== "Unit test" && token !== "멋탈!") {
 			quickReplies.push({
 				content_type: "text",
