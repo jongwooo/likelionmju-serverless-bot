@@ -68,7 +68,9 @@ exports.handler = (event, context, callback) => {
 			response = responseGen("500");
 		}
 	}
+
 	callback(null, response);
+
 	return response;
 };
 
@@ -124,6 +126,7 @@ const sendDots = recipientId => {
 		recipient: { id: recipientId },
 		sender_action: "typing_on"
 	};
+
 	sendMessageApi(json);
 };
 
@@ -160,6 +163,7 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 			quick_replies: quickReplies
 		}
 	};
+
 	sendMessageApi(json);
 };
 
