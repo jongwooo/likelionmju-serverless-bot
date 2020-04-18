@@ -36,12 +36,15 @@ exports.handler = (event, context, callback) => {
 				case "true, true, true":
 					response = responseGen("200", queryString["hub.challenge"]);
 					break;
+
 				case "true, false, true":
 					response = responseGen("401");
 					break;
+
 				case "false, true, true":
 					response = responseGen("412");
 					break;
+
 				default:
 					response = responseGen("400");
 					break;
@@ -94,15 +97,19 @@ const responseGen = (statusCode, body) => {
 			case "200":
 				res.body = "Success";
 				break;
+
 			case "400":
 				res.body = "Bad request";
 				break;
+
 			case "401":
 				res.body = "Incorrect verify token";
 				break;
+
 			case "412":
 				res.body = "Precondition failed";
 				break;
+
 			default:
 				res.body = "Internal server error";
 				break;
