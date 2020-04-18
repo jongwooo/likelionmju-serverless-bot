@@ -3,11 +3,11 @@ const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const TEST_USER_ID = process.env.TEST_USER_ID;
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString();
 
-const getStatus200Case1 = {
+const GET_STATUS_200_CASE_1 = {
 	httpMethod: "GET"
 };
 
-const getStatus200Case2 = {
+const GET_STATUS_200_CASE_2 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		"hub.verify_token": VERIFY_TOKEN,
@@ -16,7 +16,7 @@ const getStatus200Case2 = {
 	}
 };
 
-const getStatus400Case1 = {
+const GET_STATUS_400_CASE_1 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		"hub.unused_params": "true"
@@ -26,7 +26,7 @@ const getStatus400Case1 = {
 	}
 };
 
-const getStatus400Case2 = {
+const GET_STATUS_400_CASE_2 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		"hub.verify_token": VERIFY_TOKEN
@@ -35,7 +35,7 @@ const getStatus400Case2 = {
 	}
 };
 
-const getStatus400Case3 = {
+const GET_STATUS_400_CASE_3 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		// "hub.verify_token": VERIFY_TOKEN,
@@ -44,7 +44,7 @@ const getStatus400Case3 = {
 	}
 };
 
-const getStatus400Case4 = {
+const GET_STATUS_400_CASE_4 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		// "hub.verify_token": VERIFY_TOKEN,
@@ -53,7 +53,7 @@ const getStatus400Case4 = {
 	}
 };
 
-const getStatus401 = {
+const GET_STATUS_401 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		"hub.verify_token": (Math.floor(Math.random() * 1000000) + 1).toString(),
@@ -62,7 +62,7 @@ const getStatus401 = {
 	}
 };
 
-const getStatus412 = {
+const GET_STATUS_412 = {
 	httpMethod: "GET",
 	queryStringParameters: {
 		"hub.verify_token": VERIFY_TOKEN,
@@ -71,7 +71,7 @@ const getStatus412 = {
 	}
 };
 
-const postStatus200Case1 = {
+const POST_STATUS_200_CASE_1 = {
 	httpMethod: "POST",
 	body: JSON.stringify({
 		entry: [
@@ -91,7 +91,7 @@ const postStatus200Case1 = {
 	})
 };
 
-const postStatus200Case2 = {
+const POST_STATUS_200_CASE_2 = {
 	httpMethod: "POST",
 	body: JSON.stringify({
 		entry: [
@@ -111,7 +111,7 @@ const postStatus200Case2 = {
 	})
 };
 
-const postStatus500 = {
+const POST_STATUS_500 = {
 	httpMethod: "POST",
 	body: JSON.stringify({
 		entry: [
@@ -137,56 +137,56 @@ tests.push({
 	method: "GET",
 	statusCode: "200",
 	caseNum: 1,
-	object: getStatus200Case1,
+	object: GET_STATUS_200_CASE_1,
 	toBeReturn: "likelionMJU Bot"
 });
 tests.push({
 	method: "GET",
 	statusCode: "200",
 	caseNum: 2,
-	object: getStatus200Case2,
+	object: GET_STATUS_200_CASE_2,
 	toBeReturn: CHALLENGE_TOKEN
 });
 tests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 1,
-	object: getStatus400Case1,
+	object: GET_STATUS_400_CASE_1,
 	toBeReturn: "Bad request"
 });
 tests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 2,
-	object: getStatus400Case2,
+	object: GET_STATUS_400_CASE_2,
 	toBeReturn: "Bad request"
 });
 tests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 3,
-	object: getStatus400Case3,
+	object: GET_STATUS_400_CASE_3,
 	toBeReturn: "Bad request"
 });
 tests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 4,
-	object: getStatus400Case4,
+	object: GET_STATUS_400_CASE_4,
 	toBeReturn: "Bad request"
 });
 tests.push({
 	method: "GET",
 	statusCode: "401",
 	caseNum: null,
-	object: getStatus401,
+	object: GET_STATUS_401,
 	toBeReturn: "Incorrect verify token"
 });
 tests.push({
 	method: "GET",
 	statusCode: "412",
 	caseNum: null,
-	object: getStatus412,
+	object: GET_STATUS_412,
 	toBeReturn: "Precondition failed"
 });
 
@@ -195,21 +195,21 @@ tests.push({
 	method: "POST",
 	statusCode: "200",
 	caseNum: 1,
-	object: postStatus200Case1,
+	object: POST_STATUS_200_CASE_1,
 	toBeReturn: "Success"
 });
 tests.push({
 	method: "POST",
 	statusCode: "200",
 	caseNum: 2,
-	object: postStatus200Case2,
+	object: POST_STATUS_200_CASE_2,
 	toBeReturn: "Success"
 });
 tests.push({
 	method: "POST",
 	statusCode: "500",
 	caseNum: null,
-	object: postStatus500,
+	object: POST_STATUS_500,
 	toBeReturn: "Internal server error"
 });
 
