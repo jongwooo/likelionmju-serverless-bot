@@ -19,7 +19,7 @@
 		"chatbot",
 		"serverless"
 	],
-	"author": "@jongwooo",
+	"author": "Jongwoo Han <han980817@gmail.com>",
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/jongwooo/likelionmju-serverless-bot/issues"
