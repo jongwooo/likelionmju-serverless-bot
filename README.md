@@ -53,8 +53,6 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── .gitignore
     ├── .prettierignore
     ├── .prettierrc.js
-    ├── CODE_OF_CONDUCT.md
-    ├── CONTRIBUTING.md
     ├── LICENSE
     ├── README.md
     ├── index.js
@@ -63,7 +61,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── package-lock.json
     └── package.json
 
-1.  **`/.github`**: This directory contains settings about Github Actions and templates about issue, pull-request.
+1.  **`/.github`**: This directory contains a set-up of GitHub Actions, a template for the issue / pull-request, and a guide to conducts and contributions.
 
 2.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
@@ -75,23 +73,19 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 6.  **`.prettierrc.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-7.  **`CODE_OF_CONDUCT.md`**: This file defines standards for how to engage in a community. It signals an inclusive environment that respects all contributions.
+7.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
-8.  **`CONTRIBUTING.md`**: This file is guidelines for repository contributors.
+8.  **`README.md`**: A text file containing useful reference information about your project.
 
-9.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
+9.  **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
 
-10. **`README.md`**: A text file containing useful reference information about your project.
+10. **`index.test.js`**: This file is a Jest based code for testing a handler.
 
-11. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
+11. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-12. **`index.test.js`**: This file is a Jest based code for testing a handler.
+12. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-13. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
-
-14. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-15. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+13. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## ✅ Testing
 
@@ -105,11 +99,11 @@ To run Jest tests on the project, run `npm test` on the command line.
 
 ## ❗ Code of Conduct
 
-I expect everyone participating in the contributing to abide by [Code of Conduct](CODE_OF_CONDUCT.md).
+I expect everyone participating in the contributing to abide by [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
 ## 🤝 How to Contribute
 
-Check out [Contributing guide](CONTRIBUTING.md) for ideas on contributing and setup steps for getting our repositories up and running on your local machine.
+Check out [Contributing guide](.github/CONTRIBUTING.md) for ideas on contributing and setup steps for getting our repositories up and running on your local machine.
 
 ## 🐛 Bug reporting
 
