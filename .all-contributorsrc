@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "likelionmyongji",
+      "name": "명지대학교(서울) x  Likelion",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/46788594?v=4",
+      "profile": "http://likelion-mju.com",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "likelionmju-serverless-bot",
+  "projectOwner": "jongwooo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
