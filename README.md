@@ -107,7 +107,7 @@ Check out [Contributing guide](.github/CONTRIBUTING.md) for ideas on contributin
 
 ## 🐛 Bug reporting
 
-If you found a bug in this repository, please let me know through the [Issue](https://github.com/jongwooo/likelionmju-serverless-bot/issues).
+If you found a bug in this repository, please let us know through the [Issue](https://github.com/jongwooo/likelionmju-serverless-bot/issues).
 
 ## 📝 License
 
