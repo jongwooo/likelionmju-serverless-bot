@@ -99,7 +99,7 @@ To run Jest tests on the project, run `npm test` on the command line.
 
 ## ❗ Code of Conduct
 
-I expect everyone participating in the contributing to abide by [Code of Conduct](.github/CODE_OF_CONDUCT.md).
+We expect everyone participating in the contributing to abide by [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
 ## 🤝 How to Contribute
 
