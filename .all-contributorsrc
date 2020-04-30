@@ -13,6 +13,19 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jongwooo",
+      "name": "Jongwoo Han",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/44025432?v=4",
+      "profile": "https://github.com/jongwooo",
+      "contributions": [
+        "code",
+        "bug",
+        "doc",
+        "review",
+        "test"
+      ]
     }
   ],
   "contributorsPerLine": 7,
