@@ -1,0 +1,46 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+        "login": "jongwooo",
+        "name": "Jongwoo Han",
+        "avatar_url": "https://avatars2.githubusercontent.com/u/44025432?v=4",
+        "profile": "https://github.com/jongwooo",
+        "contributions": [
+          "code",
+          "bug",
+          "doc",
+          "review",
+          "test"
+        ]
+      },
+    {
+      "login": "likelionmyongji",
+      "name": "명지대학교(서울) x  Likelion",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/46788594?v=4",
+      "profile": "http://likelion-mju.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "allcontributors",
+      "name": "allcontributors[bot]",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/46843839?v=4",
+      "profile": "https://github.com/all-contributors/all-contributors-bot",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "likelionmju-serverless-bot",
+  "projectOwner": "jongwooo",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
