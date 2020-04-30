@@ -104,19 +104,15 @@ To run Jest tests on the project, run `npm test` on the command line.
 
 We expect everyone participating in the contributing to abide by [Code of Conduct](.github/CODE_OF_CONDUCT.md).
 
-## 🤝 How to Contribute
-
-Check out [Contributing guide](.github/CONTRIBUTING.md) for ideas on contributing and setup steps for getting our repositories up and running on your local machine.
-
 ## 🐛 Bug reporting
 
 If you found a bug in this repository, please let us know through the [Issue](https://github.com/jongwooo/likelionmju-serverless-bot/issues).
 
-## 📝 License
+## 🤝 How to Contribute
 
-Licensed under the [MIT License](LICENSE).
+Check out [Contributing guide](.github/CONTRIBUTING.md) for ideas on contributing and setup steps for getting our repositories up and running on your local machine.
 
-## Contributors ✨
+## ✨ Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
@@ -131,6 +127,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## 📝 License
+
+Licensed under the [MIT License](LICENSE).
