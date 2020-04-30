@@ -34,7 +34,8 @@ exports.handler = (event, context, callback) => {
 			let queryString = event["queryStringParameters"];
 			let status = [
 				queryString["hub.mode"] === "subscribe",
-				queryString["hub.verify_token"] === VERIFY_TOKEN,
+				queryString["hub.verify_token"] === VERIFY_TOKEN &&
+					isNotEmpty(queryString["hub.verify_token"]),
 				isNotEmpty(queryString["hub.challenge"])
 			];
 
