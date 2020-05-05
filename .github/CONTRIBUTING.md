@@ -31,6 +31,23 @@ $ npm run lint
 # in https://github.com/jongwooo/likelionmju-serverless-bot
 ```
 
+## Commit message rules
+
+Consider starting the commit message with a type label:
+
+- `feat:` prefix.
+  - When create a new feature.
+- `fix:` prefix.
+  - When fixing a bug.
+- `docs:` prefix.
+  - When adding a document.
+- `style:` prefix.
+  - When change the code format.
+- `refactor:` prefix.
+  - When refactoring production code.
+- `test:` prefix.
+  - When adding or refactoring tests.  
+  
 ### Thanks!
 
 > I'm waiting for your pull request. :pray:
