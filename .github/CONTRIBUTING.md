@@ -33,20 +33,31 @@ $ npm run lint
 
 ## Commit message rules
 
-Consider starting the commit message with a type label:
+- The commit message does not exceed 50 characters, and the first letter is capitalized and does not end with a period.
 
-- `feat:` prefix.
-  - When create a new feature.
-- `fix:` prefix.
-  - When fixing a bug.
-- `docs:` prefix.
-  - When adding a document.
-- `style:` prefix.
-  - When change the code format.
-- `refactor:` prefix.
-  - When refactoring production code.
-- `test:` prefix.
-  - When adding or refactoring tests.  
+- If you want to skip workflows([Deploy to Lambda](.github/workflows/deploy.yml), etc.), include the `[skip ci]` string in the commit message.
+    - For example, `docs: Update .all-contributorsrc [skip ci]`.
+
+- Write as a command without using a past tense.
+    - `Fixed` -> `Fix`
+    - `Added` -> `Add`
+
+- Consider starting the commit message with a type label:
+
+    - `feat:` prefix.
+      - When create a new feature.
+    - `fix:` prefix.
+      - When fixing a bug.
+    - `docs:` prefix.
+      - When adding a document.
+    - `style:` prefix.
+      - When change the code format.
+    - `refactor:` prefix.
+      - When refactoring production code.
+    - `test:` prefix.
+      - When adding or refactoring tests.
+    - `chore:` prefix.
+      - When update a build test or setting up package manager.
   
 ### Thanks!
 
