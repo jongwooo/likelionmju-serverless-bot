@@ -33,32 +33,33 @@ $ npm run lint
 
 ## Commit message rules
 
-- The commit message does not exceed 50 characters, and the first letter is capitalized and does not end with a period.
+- The first part of the commit message begins with an infinitive, and the first letter is capitalized. It starts with commands such as `Fix`, `Add` and `Change` instead of past tense such as `Fixed`, `Added` and `Changed`. In addition, It does not exceed 50 characters and does not end with a period (.).
+
+  - `Fixed` -> `Fix`
+  - `Added` -> `Add`
+  - `Changed` -> `Change`
 
 - If you want to skip workflows([Deploy to Lambda](.github/workflows/deploy.yml), etc.), include the `[skip ci]` string in the commit message.
-    - For example, `docs: Update .all-contributorsrc [skip ci]`.
 
-- Write as a command without using a past tense.
-    - `Fixed` -> `Fix`
-    - `Added` -> `Add`
+  - For example, `docs: Update .all-contributorsrc [skip ci]`.
 
 - Consider starting the commit message with a type label:
 
-    - `feat:` prefix.
-      - When create a new feature.
-    - `fix:` prefix.
-      - When fixing a bug.
-    - `docs:` prefix.
-      - When adding a document.
-    - `style:` prefix.
-      - When change the code format.
-    - `refactor:` prefix.
-      - When refactoring production code.
-    - `test:` prefix.
-      - When adding or refactoring tests.
-    - `chore:` prefix.
-      - When update a build test or setting up package manager.
-  
+  - `feat:` prefix.
+    - When create a new feature.
+  - `fix:` prefix.
+    - When fixing a bug.
+  - `docs:` prefix.
+    - When adding a document.
+  - `style:` prefix.
+    - When change the code format.
+  - `refactor:` prefix.
+    - When refactoring production code.
+  - `test:` prefix.
+    - When adding or refactoring tests.
+  - `chore:` prefix.
+    - When update a build test or setting up package manager.
+
 ### Thanks!
 
 > I'm waiting for your pull request. :pray:
