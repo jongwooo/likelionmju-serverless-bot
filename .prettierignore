@@ -1,8 +1,4 @@
 node_modules/
 package-lock.json
 coverage/
-ISSUE_TEMPLATE/
-PULL_REQUEST_TEMPLATE.md
-.github/CODE_OF_CONDUCT.md
-.github/CONTRIBUTING.md
 .all-contributorsrc
