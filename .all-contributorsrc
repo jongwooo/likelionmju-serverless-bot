@@ -6,18 +6,21 @@
   "commit": false,
   "contributors": [
     {
-        "login": "jongwooo",
-        "name": "Jongwoo Han",
-        "avatar_url": "https://avatars2.githubusercontent.com/u/44025432?v=4",
-        "profile": "https://github.com/jongwooo",
-        "contributions": [
-          "code",
-          "bug",
-          "doc",
-          "review",
-          "test"
-        ]
-      },
+      "login": "jongwooo",
+      "name": "Jongwoo Han",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/44025432?v=4",
+      "profile": "https://github.com/jongwooo",
+      "contributions": [
+        "code",
+        "bug",
+        "doc",
+        "review",
+        "test",
+        "ideas",
+        "infra",
+        "maintenance"
+      ]
+    },
     {
       "login": "likelionmyongji",
       "name": "명지대학교(서울) x  Likelion",
