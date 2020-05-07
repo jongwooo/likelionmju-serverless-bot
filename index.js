@@ -29,50 +29,58 @@ exports.handler = (event, context, callback) => {
 	let method = event["httpMethod"];
 	let response = {};
 
-	if (method === "GET") {
-		if (event["queryStringParameters"]) {
-			let queryString = event["queryStringParameters"];
-			let status = [
-				queryString["hub.mode"] === "subscribe",
-				queryString["hub.verify_token"] === VERIFY_TOKEN &&
-					isNotEmpty(queryString["hub.verify_token"]),
-				isNotEmpty(queryString["hub.challenge"])
-			];
+	switch (method) {
+		case "GET":
+			if (event["queryStringParameters"]) {
+				let queryString = event["queryStringParameters"];
+				let status = [
+					queryString["hub.mode"] === "subscribe",
+					queryString["hub.verify_token"] === VERIFY_TOKEN &&
+						isNotEmpty(queryString["hub.verify_token"]),
+					isNotEmpty(queryString["hub.challenge"])
+				];
 
-			switch (status.join(", ")) {
-				case "true, true, true":
-					response = responseGen("200", queryString["hub.challenge"]);
-					break;
+				switch (status.join(", ")) {
+					case "true, true, true":
+						response = responseGen("200", queryString["hub.challenge"]);
+						break;
 
-				case "true, false, true":
-					response = responseGen("401");
-					break;
+					case "true, false, true":
+						response = responseGen("401");
+						break;
 
-				case "false, true, true":
-					response = responseGen("412");
-					break;
+					case "false, true, true":
+						response = responseGen("412");
+						break;
 
-				default:
-					response = responseGen("400");
-					break;
-			}
-		} else {
-			response = responseGen("200", "likelionMJU Bot");
-		}
-	} else if (method === "POST") {
-		try {
-			let bodyEvent = JSON.parse(event["body"]);
-			let messagingEvent = bodyEvent.entry[0].messaging[0];
-
-			if (messagingEvent.message.text && messagingEvent.sender.id) {
-				sendDots(messagingEvent.sender.id);
-				sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
+					default:
+						response = responseGen("400");
+						break;
+				}
+			} else {
+				response = responseGen("200", "likelionMJU Bot");
 			}
 
-			response = responseGen("200");
-		} catch (error) {
-			response = responseGen("500");
-		}
+			break;
+
+		case "POST":
+			try {
+				let bodyEvent = JSON.parse(event["body"]);
+				let messagingEvent = bodyEvent.entry[0].messaging[0];
+
+				if (messagingEvent.message.text && messagingEvent.sender.id) {
+					sendDots(messagingEvent.sender.id);
+					sendTextMessage(
+						messagingEvent.sender.id,
+						messagingEvent.message.text
+					);
+				}
+
+				response = responseGen("200");
+			} catch (error) {
+				response = responseGen("500");
+			}
+			break;
 	}
 
 	callback(null, response);
@@ -90,17 +98,12 @@ const isNotEmpty = queryString => {
 
 const responseGen = (statusCode, body) => {
 	let res = {
-		statusCode: "",
+		statusCode: statusCode,
 		body: "",
 		headers: { "Content-Type": "application/json" }
 	};
 
-	if (body) {
-		res.statusCode = statusCode;
-		res.body = body;
-	} else {
-		res.statusCode = statusCode;
-
+	if (!body) {
 		switch (statusCode) {
 			case "200":
 				res.body = "Success";
@@ -122,8 +125,11 @@ const responseGen = (statusCode, body) => {
 				res.body = "Internal server error";
 				break;
 		}
+
+		return res;
 	}
 
+	res.body = body;
 	return res;
 };
 
