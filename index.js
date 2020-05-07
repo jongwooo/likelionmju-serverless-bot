@@ -31,6 +31,8 @@ exports.handler = (event, context, callback) => {
 
 	switch (method) {
 		case "GET":
+			response = responseGen("200", "likelionMJU Bot");
+
 			if (event["queryStringParameters"]) {
 				let queryString = event["queryStringParameters"];
 				let status = [
@@ -57,10 +59,7 @@ exports.handler = (event, context, callback) => {
 						response = responseGen("400");
 						break;
 				}
-			} else {
-				response = responseGen("200", "likelionMJU Bot");
 			}
-
 			break;
 
 		case "POST":
