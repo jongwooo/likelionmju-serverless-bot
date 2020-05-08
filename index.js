@@ -12,7 +12,10 @@ const questions = require("./questions");
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-const IGNORE_TOKEN = ["Unit test", "멋탈!"];
+
+const IGNORE_REPLY = ["Unit test", "멋탈!"];
+const DEFAULT_REPLY =
+	"안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n\n아래 제시된 키워드 중에서\n선택하여 질문해주세요.";
 
 exports.handler = (event, context, callback) => {
 	let method = event["httpMethod"];
@@ -136,7 +139,7 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 	let json;
 
 	for (const token in questions) {
-		if (!IGNORE_TOKEN.includes(token)) {
+		if (!IGNORE_REPLY.includes(token)) {
 			quickReplies.push({
 				content_type: "text",
 				title: token,
@@ -150,8 +153,7 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 	}
 
 	if (messageText === "") {
-		messageText =
-			"안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n\n아래 제시된 키워드 중에서\n선택하여 질문해주세요.";
+		messageText = DEFAULT_REPLY;
 	}
 
 	json = {
