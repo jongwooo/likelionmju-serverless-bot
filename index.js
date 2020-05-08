@@ -172,7 +172,7 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 const sendMessageApi = messageObject => {
 	request(
 		{
-			url: `https://graph.facebook.com/v6.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
+			url: `https://graph.facebook.com/v7.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
 			method: "POST",
 			json: messageObject
 		},
