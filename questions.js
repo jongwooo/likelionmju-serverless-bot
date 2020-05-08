@@ -1,3 +1,11 @@
+/**
+ * Copyright (c) 2020 Jongwoo Han
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+"use strict";
 const questions = {};
 questions["활동 기간"] = "2020.04 - 2020.12";
 questions["지원 대상"] =
