@@ -7,6 +7,7 @@
 
 "use strict";
 const index = require("./index.js");
+
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 const TEST_USER_ID = process.env.TEST_USER_ID;
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString();
