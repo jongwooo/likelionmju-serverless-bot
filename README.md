@@ -3,6 +3,7 @@
     <img alt="logo" src="https://likelionmju-serverless-bot-bucket.s3.ap-northeast-2.amazonaws.com/assets/images/likelionmju_logo.png" width="60" />
   </a>
 </p>
+
 <h1 align="center">
   likelionMJU Bot
 </h1>
@@ -21,7 +22,7 @@
 
 <p align="center">
   <a href="LICENSE">
-    <img alt="GitHub" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue">
+    <img alt="LICENSE" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue">
   </a>
   <a href="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot">
     <img alt="Codecov coverage reports" src="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot/branch/master/graph/badge.svg" />
@@ -120,8 +121,10 @@ Check out [Contributing guide](.github/CONTRIBUTING.md) for ideas on contributin
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
+
 <table>
   <tr>
     <td align="center"><a href="https://github.com/jongwooo"><img src="https://avatars2.githubusercontent.com/u/44025432?v=4" width="100px;" alt=""/><br /><sub><b>Jongwoo Han</b></sub></a><br /><a href="https://github.com/jongwooo/likelionmju-serverless-bot/commits?author=jongwooo" title="Code">💻</a> <a href="https://github.com/jongwooo/likelionmju-serverless-bot/issues?q=author%3Ajongwooo" title="Bug reports">🐛</a> <a href="https://github.com/jongwooo/likelionmju-serverless-bot/commits?author=jongwooo" title="Documentation">📖</a> <a href="https://github.com/jongwooo/likelionmju-serverless-bot/pulls?q=is%3Apr+reviewed-by%3Ajongwooo" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/jongwooo/likelionmju-serverless-bot/commits?author=jongwooo" title="Tests">⚠️</a> <a href="#ideas-jongwooo" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-jongwooo" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-jongwooo" title="Maintenance">🚧</a></td>
