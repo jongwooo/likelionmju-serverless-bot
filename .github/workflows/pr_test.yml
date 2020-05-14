@@ -24,6 +24,7 @@ jobs:
         run: npm run format
       - name: Run test code
         env:
+          FACEBOOK_API_VERSION: ${{ secrets.FACEBOOK_API_VERSION }}
           PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
           VERIFY_TOKEN: ${{ secrets.VERIFY_TOKEN }}
           TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
