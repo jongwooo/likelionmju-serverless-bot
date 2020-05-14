@@ -10,9 +10,9 @@ const request = require("request");
 
 const questions = require("./questions");
 
+const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 
 const IGNORE_REPLY = ["Unit test", "멋탈!"];
 const DEFAULT_REPLY =
