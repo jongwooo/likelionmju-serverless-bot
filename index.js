@@ -12,6 +12,7 @@ const questions = require("./questions");
 
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
+const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 
 const IGNORE_REPLY = ["Unit test", "멋탈!"];
 const DEFAULT_REPLY =
@@ -172,7 +173,7 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 const sendMessageApi = messageObject => {
 	request(
 		{
-			url: `https://graph.facebook.com/v7.0/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
+			url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
 			method: "POST",
 			json: messageObject
 		},
