@@ -25,7 +25,7 @@
     <img alt="LICENSE" src="https://img.shields.io/github/license/jongwooo/likelionmju-serverless-bot?color=blue">
   </a>
   <a href="https://www.codefactor.io/repository/github/jongwooo/likelionmju-serverless-bot">
-    <img src="https://www.codefactor.io/repository/github/jongwooo/likelionmju-serverless-bot/badge" alt="CodeFactor" />
+    <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/jongwooo/likelionmju-serverless-bot/badge">
   </a>
   <a href="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot">
     <img alt="Codecov coverage reports" src="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot/branch/master/graph/badge.svg" />
