@@ -8,15 +8,14 @@
 "use strict";
 const request = require("request");
 
-const questions = require("./questions");
+const metaConfig = require("./meta-config");
+const DEFAULT_REPLY = metaConfig.DEFAULT_REPLY;
+const IGNORE_REPLY = metaConfig.IGNORE_REPLY;
+const questions = metaConfig.questions;
 
 const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-
-const IGNORE_REPLY = ["Unit test", "멋탈!"];
-const DEFAULT_REPLY =
-	"안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n\n아래 제시된 키워드 중에서\n선택하여 질문해주세요.";
 
 exports.handler = (event, context, callback) => {
 	let method = event["httpMethod"];
