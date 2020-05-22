@@ -140,58 +140,58 @@ const POST_STATUS_500 = {
 	})
 };
 
-const tests = [];
-/* TODO: GET */
-tests.push({
+const httpGetMethodTests = [];
+
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "200",
 	caseNum: 1,
 	object: GET_STATUS_200_CASE_1,
 	toBeReturn: "likelionMJU Bot"
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "200",
 	caseNum: 2,
 	object: GET_STATUS_200_CASE_2,
 	toBeReturn: CHALLENGE_TOKEN
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 1,
 	object: GET_STATUS_400_CASE_1,
 	toBeReturn: "Bad request"
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 2,
 	object: GET_STATUS_400_CASE_2,
 	toBeReturn: "Bad request"
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 3,
 	object: GET_STATUS_400_CASE_3,
 	toBeReturn: "Bad request"
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 4,
 	object: GET_STATUS_400_CASE_4,
 	toBeReturn: "Bad request"
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "401",
 	caseNum: null,
 	object: GET_STATUS_401,
 	toBeReturn: "Incorrect verify token"
 });
-tests.push({
+httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "412",
 	caseNum: null,
@@ -199,22 +199,23 @@ tests.push({
 	toBeReturn: "Precondition failed"
 });
 
-/* TODO: POST */
-tests.push({
+const httpPostMethodTests = [];
+
+httpPostMethodTests.push({
 	method: "POST",
 	statusCode: "200",
 	caseNum: 1,
 	object: POST_STATUS_200_CASE_1,
 	toBeReturn: "Success"
 });
-tests.push({
+httpPostMethodTests.push({
 	method: "POST",
 	statusCode: "200",
 	caseNum: 2,
 	object: POST_STATUS_200_CASE_2,
 	toBeReturn: "Success"
 });
-tests.push({
+httpPostMethodTests.push({
 	method: "POST",
 	statusCode: "500",
 	caseNum: null,
@@ -229,7 +230,7 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 		testName = `${testName} Case ${caseNum}`;
 	}
 
-	test(testName, () => {
+	it(testName, () => {
 		expect(
 			index.handler(object, null, (isNotNull, res) => {
 				if (isNotNull) {
@@ -240,13 +241,20 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 	});
 };
 
-for (let i = 0; i < tests.length; i++) {
-	let testCase = tests[i];
-	unitTest(
-		testCase.method,
-		testCase.statusCode,
-		testCase.caseNum,
-		testCase.object,
-		testCase.toBeReturn
-	);
-}
+const Tester = (describeText, testCases) => {
+	for (let i = 0; i < testCases.length; i++) {
+		let testCase = testCases[i];
+		describe(describeText, () => {
+			unitTest(
+				testCase.method,
+				testCase.statusCode,
+				testCase.caseNum,
+				testCase.object,
+				testCase.toBeReturn
+			);
+		});
+	}
+};
+
+Tester("HTTP GET Method Test", httpGetMethodTests);
+Tester("HTTP POST Method Test", httpPostMethodTests);
