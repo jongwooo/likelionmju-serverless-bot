@@ -63,9 +63,9 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── index.js
     ├── index.test.js
     ├── jest.config.js
+    ├── meta-config.js
     ├── package-lock.json
-    ├── package.json
-    └── questions.js
+    └── package.json
 
 1.  **`/.github`**: This directory contains a set-up of GitHub Actions, a template for the issue / pull-request, and a guide to conducts and contributions.
 
@@ -91,11 +91,11 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 12. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-13. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+13. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
 
-14. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+14. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-15. **`questions.js`**: This file contains a list of answers to the questions.
+15. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## ✅ Testing
 
