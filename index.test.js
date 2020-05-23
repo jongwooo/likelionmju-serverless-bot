@@ -242,9 +242,9 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 };
 
 const Tester = (describeText, testCases) => {
-	for (let i = 0; i < testCases.length; i++) {
-		let testCase = testCases[i];
-		describe(describeText, () => {
+	describe(describeText, () => {
+		for (let i = 0; i < testCases.length; i++) {
+			let testCase = testCases[i];
 			unitTest(
 				testCase.method,
 				testCase.statusCode,
@@ -252,8 +252,8 @@ const Tester = (describeText, testCases) => {
 				testCase.object,
 				testCase.toBeReturn
 			);
-		});
-	}
+		}
+	});
 };
 
 Tester("HTTP GET Method Test", httpGetMethodTests);
