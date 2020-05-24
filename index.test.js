@@ -243,8 +243,7 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 
 const Tester = (describeText, testCases) => {
 	describe(describeText, () => {
-		for (let i = 0; i < testCases.length; i++) {
-			let testCase = testCases[i];
+		for (const testCase of testCases) {
 			unitTest(
 				testCase.method,
 				testCase.statusCode,
