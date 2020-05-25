@@ -32,7 +32,6 @@ jobs:
         uses: iansu/codecov-action-node@v1.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: coverage/lcov.info
       - name: Run npm build
         run: npm run build --if-present
       - name: zip
