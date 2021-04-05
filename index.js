@@ -152,6 +152,10 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 		}
 	}
 
+	if (receivedMessage.includes("Unit test")) {
+		messageText = `[Unit test]\n\n-Sender ID: ${recipientId}\n-Facebook API v ${FACEBOOK_API_VERSION}\n -Copyright (c) 2020 Jongwoo Han`;
+	}
+
 	if (messageText === "") {
 		messageText = DEFAULT_REPLY;
 	}
