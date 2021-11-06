@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/likelionmju">
-    <img alt="logo" src="https://likelionmju-serverless-bot-bucket.s3.ap-northeast-2.amazonaws.com/assets/images/likelionmju_logo.png" width="60" />
+    <img alt="logo" src="./assets/likelionmju_logo.png" width="60" />
   </a>
 </p>
 
@@ -39,12 +39,8 @@
 </p>
 
 <p align="center">
-  <img alt="mockup" src="https://likelionmju-serverless-bot-bucket.s3.ap-northeast-2.amazonaws.com/assets/images/mockup.png">
+  <img alt="mockup" src="./assets/mockup.png">
 </p>
-
-## 🔍 Overview
-
-<img alt="architecture" src="https://likelionmju-serverless-bot-bucket.s3.ap-northeast-2.amazonaws.com/assets/images/architecture.png">
 
 ## 🧐 What's inside?
 
@@ -52,6 +48,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
     .
     ├── .github
+    ├── assets
     ├── node_modules
     ├── .all-contributorsrc
     ├── .eslintrc.js
@@ -69,33 +66,35 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 1.  **`/.github`**: This directory contains a set-up of GitHub Actions, a template for the issue / pull-request, and a guide to conducts and contributions.
 
-2.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+2.  **`/assets`**: This directory contains the logo of this service.
 
-3.  **`.all-contributorsrc`**: This is a configuration file for [All Contributors](https://allcontributors.org). All Contributors is a specification for recognizing contributors to an open source project in a way that rewards each and every contribution, not just code.
+3.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-4.  **`.eslintrc.js`**: This is a configuration file for [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+4.  **`.all-contributorsrc`**: This is a configuration file for [All Contributors](https://allcontributors.org). All Contributors is a specification for recognizing contributors to an open source project in a way that rewards each and every contribution, not just code.
 
-5.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+5.  **`.eslintrc.js`**: This is a configuration file for [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
-6.  **`.prettierignore`**: This file tells Prettier which files it should not format for.
+6.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-7.  **`.prettierrc.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+7.  **`.prettierignore`**: This file tells Prettier which files it should not format for.
 
-8.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
+8.  **`.prettierrc.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-9.  **`README.md`**: A text file containing useful reference information about your project.
+9.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
-10. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
+10.  **`README.md`**: A text file containing useful reference information about your project.
 
-11. **`index.test.js`**: This file is a Jest based code for testing a handler.
+11. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
 
-12. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
+12. **`index.test.js`**: This file is a Jest based code for testing a handler.
 
-13. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
+13. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-14. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+14. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
 
-15. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+15. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+16. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## ✅ Testing
 
