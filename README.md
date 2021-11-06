@@ -82,7 +82,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 9.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
-10.  **`README.md`**: A text file containing useful reference information about your project.
+10. **`README.md`**: A text file containing useful reference information about your project.
 
 11. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
 
