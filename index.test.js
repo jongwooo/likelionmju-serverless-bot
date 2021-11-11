@@ -146,56 +146,56 @@ httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "200",
 	caseNum: 1,
-	object: GET_STATUS_200_CASE_1,
+	caseType: GET_STATUS_200_CASE_1,
 	toBeReturn: "likelionMJU Bot"
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "200",
 	caseNum: 2,
-	object: GET_STATUS_200_CASE_2,
+	caseType: GET_STATUS_200_CASE_2,
 	toBeReturn: CHALLENGE_TOKEN
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 1,
-	object: GET_STATUS_400_CASE_1,
+	caseType: GET_STATUS_400_CASE_1,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 2,
-	object: GET_STATUS_400_CASE_2,
+	caseType: GET_STATUS_400_CASE_2,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 3,
-	object: GET_STATUS_400_CASE_3,
+	caseType: GET_STATUS_400_CASE_3,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "400",
 	caseNum: 4,
-	object: GET_STATUS_400_CASE_4,
+	caseType: GET_STATUS_400_CASE_4,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "401",
 	caseNum: null,
-	object: GET_STATUS_401,
+	caseType: GET_STATUS_401,
 	toBeReturn: "Incorrect verify token"
 });
 httpGetMethodTests.push({
 	method: "GET",
 	statusCode: "412",
 	caseNum: null,
-	object: GET_STATUS_412,
+	caseType: GET_STATUS_412,
 	toBeReturn: "Precondition failed"
 });
 
@@ -205,25 +205,25 @@ httpPostMethodTests.push({
 	method: "POST",
 	statusCode: "200",
 	caseNum: 1,
-	object: POST_STATUS_200_CASE_1,
+	caseType: POST_STATUS_200_CASE_1,
 	toBeReturn: "Success"
 });
 httpPostMethodTests.push({
 	method: "POST",
 	statusCode: "200",
 	caseNum: 2,
-	object: POST_STATUS_200_CASE_2,
+	caseType: POST_STATUS_200_CASE_2,
 	toBeReturn: "Success"
 });
 httpPostMethodTests.push({
 	method: "POST",
 	statusCode: "500",
 	caseNum: null,
-	object: POST_STATUS_500,
+	caseType: POST_STATUS_500,
 	toBeReturn: "Internal server error"
 });
 
-const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
+const unitTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
 	let testName = `${method}:: status ${statusCode}`;
 
 	if (caseNum) {
@@ -232,9 +232,9 @@ const unitTest = (method, statusCode, caseNum, object, toBeReturn) => {
 
 	it(testName, () => {
 		expect(
-			index.handler(object, null, (isNotNull, res) => {
+			index.handler(caseType, null, (isNotNull, response) => {
 				if (isNotNull) {
-					console.error(res);
+					console.error(response);
 				}
 			}).body
 		).toBe(toBeReturn);
@@ -248,7 +248,7 @@ const Tester = (describeText, testCases) => {
 				testCase.method,
 				testCase.statusCode,
 				testCase.caseNum,
-				testCase.object,
+				testCase.caseType,
 				testCase.toBeReturn
 			);
 		}
