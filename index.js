@@ -23,32 +23,35 @@ exports.handler = (event, context, callback) => {
 
 	switch (method) {
 		case "GET":
-			response = responseGen("200", "likelionMJU Bot");
+			response = generateResponse("200", "likelionMJU Bot");
 
 			if (event["queryStringParameters"]) {
-				let queryString = event["queryStringParameters"];
+				let queryStringParams = event["queryStringParameters"];
 				let status = [
-					queryString["hub.mode"] === "subscribe",
-					queryString["hub.verify_token"] === VERIFY_TOKEN &&
-						isNotEmpty(queryString["hub.verify_token"]),
-					isNotEmpty(queryString["hub.challenge"])
+					queryStringParams["hub.mode"] === "subscribe",
+					queryStringParams["hub.verify_token"] === VERIFY_TOKEN &&
+						isParamsNotEmpty(queryStringParams["hub.verify_token"]),
+					isParamsNotEmpty(queryStringParams["hub.challenge"])
 				];
 
 				switch (status.join(", ")) {
 					case "true, true, true":
-						response = responseGen("200", queryString["hub.challenge"]);
+						response = generateResponse(
+							"200",
+							queryStringParams["hub.challenge"]
+						);
 						break;
 
 					case "true, false, true":
-						response = responseGen("401");
+						response = generateResponse("401");
 						break;
 
 					case "false, true, true":
-						response = responseGen("412");
+						response = generateResponse("412");
 						break;
 
 					default:
-						response = responseGen("400");
+						response = generateResponse("400");
 						break;
 				}
 			}
@@ -67,9 +70,9 @@ exports.handler = (event, context, callback) => {
 					);
 				}
 
-				response = responseGen("200");
-			} catch (error) {
-				response = responseGen("500");
+				response = generateResponse("200");
+			} catch (postError) {
+				response = generateResponse("500");
 			}
 			break;
 	}
@@ -79,16 +82,12 @@ exports.handler = (event, context, callback) => {
 	return response;
 };
 
-const isNotEmpty = queryString => {
-	return (
-		typeof queryString !== "undefined" &&
-		queryString !== null &&
-		queryString !== ""
-	);
+const isParamsNotEmpty = params => {
+	return typeof params !== "undefined" && params !== null && params !== "";
 };
 
-const responseGen = (statusCode, body) => {
-	let res = {
+const generateResponse = (statusCode, body) => {
+	let response = {
 		statusCode: statusCode,
 		body: "",
 		headers: { "Content-Type": "application/json" }
@@ -97,46 +96,46 @@ const responseGen = (statusCode, body) => {
 	if (!body) {
 		switch (statusCode) {
 			case "200":
-				res.body = "Success";
+				response.body = "Success";
 				break;
 
 			case "400":
-				res.body = "Bad request";
+				response.body = "Bad request";
 				break;
 
 			case "401":
-				res.body = "Incorrect verify token";
+				response.body = "Incorrect verify token";
 				break;
 
 			case "412":
-				res.body = "Precondition failed";
+				response.body = "Precondition failed";
 				break;
 
 			default:
-				res.body = "Internal server error";
+				response.body = "Internal server error";
 				break;
 		}
 
-		return res;
+		return response;
 	}
 
-	res.body = body;
-	return res;
+	response.body = body;
+	return response;
 };
 
 const sendDots = recipientId => {
-	let json = {
+	let dots = {
 		recipient: { id: recipientId },
 		sender_action: "typing_on"
 	};
 
-	sendMessageApi(json);
+	sendMessageApi(dots);
 };
 
 const sendTextMessage = (recipientId, receivedMessage) => {
-	let messageText = "";
+	let texts = "";
 	let quickReplies = [];
-	let json;
+	let textMessage;
 
 	for (const token in questions) {
 		if (!IGNORE_REPLY.includes(token)) {
@@ -148,37 +147,37 @@ const sendTextMessage = (recipientId, receivedMessage) => {
 		}
 
 		if (receivedMessage.includes(token)) {
-			messageText += `${questions[token]}\n\n`;
+			texts += `${questions[token]}\n\n`;
 		}
 	}
 
 	if (receivedMessage.includes("Unit test")) {
-		messageText = `[Unit test]\n\n-Sender ID: ${recipientId}\n-Facebook API v ${FACEBOOK_API_VERSION}\n`;
+		texts = `[Unit test]\n\n-Sender ID: ${recipientId}\n-Facebook API v ${FACEBOOK_API_VERSION}\n`;
 	}
 
-	if (messageText === "") {
-		messageText = DEFAULT_REPLY;
+	if (texts === "") {
+		texts = DEFAULT_REPLY;
 	}
 
-	json = {
+	textMessage = {
 		recipient: {
 			id: recipientId
 		},
 		message: {
-			text: messageText,
+			text: texts,
 			quick_replies: quickReplies
 		}
 	};
 
-	sendMessageApi(json);
+	sendMessageApi(textMessage);
 };
 
-const sendMessageApi = messageObject => {
+const sendMessageApi = messages => {
 	request(
 		{
 			url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
 			method: "POST",
-			json: messageObject
+			json: messages
 		},
 		error => {
 			if (error) throw new Error();
