@@ -6,11 +6,8 @@
  */
 
 "use strict";
-import { getHandler } from "./get";
-import { postHandler } from "./post";
+const { getHandler } = require("./get");
+const { postHandler } = require("./post");
 
-const _getHandler = getHandler;
-export { _getHandler as getHandler };
-
-const _postHandler = postHandler;
-export { _postHandler as postHandler };
+exports.getHandler = getHandler;
+exports.postHandler = postHandler;

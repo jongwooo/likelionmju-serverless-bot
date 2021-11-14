@@ -6,7 +6,7 @@
  */
 
 "use strict";
-export function buildResponse(statusCode, body) {
+exports.buildResponse = (statusCode, body) => {
 	let response = {
 		statusCode: statusCode,
 		body: "",
@@ -41,4 +41,4 @@ export function buildResponse(statusCode, body) {
 
 	response.body = body;
 	return response;
-}
+};

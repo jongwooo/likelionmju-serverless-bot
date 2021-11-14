@@ -6,12 +6,12 @@
  */
 
 "use strict";
-import request from "request";
+const request = require("request");
 
 const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-export function sendMessageApi(messages) {
+exports.sendMessageApi = messages => {
 	request(
 		{
 			url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
@@ -22,4 +22,4 @@ export function sendMessageApi(messages) {
 			if (error) throw new Error();
 		}
 	);
-}
+};

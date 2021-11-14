@@ -6,11 +6,11 @@
  */
 
 "use strict";
-import { buildResponse } from "./response";
+const { buildResponse } = require("./response");
 
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
-export function getHandler(event) {
+exports.getHandler = event => {
 	let response = "";
 
 	if (event.queryStringParameters) {
@@ -42,7 +42,7 @@ export function getHandler(event) {
 	}
 
 	return response;
-}
+};
 
 const isParamsNotEmpty = params => {
 	return typeof params !== "undefined" && params !== null && params !== "";

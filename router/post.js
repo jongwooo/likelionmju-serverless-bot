@@ -6,10 +6,10 @@
  */
 
 "use strict";
-import { buildResponse } from "./response";
-import { sendDots, sendTextMessage } from "./api";
+const { buildResponse } = require("./response");
+const { sendDots, sendTextMessage } = require("./api");
 
-export function postHandler(event) {
+exports.postHandler = event => {
 	let response = "";
 
 	try {
@@ -27,4 +27,4 @@ export function postHandler(event) {
 	}
 
 	return response;
-}
+};

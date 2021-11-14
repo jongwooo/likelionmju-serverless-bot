@@ -6,20 +6,16 @@
  */
 
 "use strict";
-import {
-	DEFAULT_REPLY as _DEFAULT_REPLY,
-	IGNORE_REPLY as _IGNORE_REPLY,
-	questions as _questions
-} from "../../meta-config";
-import { sendMessageApi } from "./message";
+const metaConfig = require("../../meta-config");
+const { sendMessageApi } = require("./message");
 
-const DEFAULT_REPLY = _DEFAULT_REPLY;
-const IGNORE_REPLY = _IGNORE_REPLY;
-const questions = _questions;
+const DEFAULT_REPLY = metaConfig.DEFAULT_REPLY;
+const IGNORE_REPLY = metaConfig.IGNORE_REPLY;
+const questions = metaConfig.questions;
 
 const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 
-export function sendTextMessage(recipientId, receivedMessage) {
+exports.sendTextMessage = (recipientId, receivedMessage) => {
 	let texts = "";
 	let quickReplies = [];
 	let textMessage;
@@ -57,4 +53,4 @@ export function sendTextMessage(recipientId, receivedMessage) {
 	};
 
 	sendMessageApi(textMessage);
-}
+};

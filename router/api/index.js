@@ -6,11 +6,8 @@
  */
 
 "use strict";
-import { sendDots } from "./dots";
-import { sendTextMessage } from "./text";
+const { sendDots } = require("./dots");
+const { sendTextMessage } = require("./text");
 
-const _sendDots = sendDots;
-export { _sendDots as sendDots };
-
-const _sendTextMessage = sendTextMessage;
-export { _sendTextMessage as sendTextMessage };
+exports.sendDots = sendDots;
+exports.sendTextMessage = sendTextMessage;

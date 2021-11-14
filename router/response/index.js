@@ -6,7 +6,6 @@
  */
 
 "use strict";
-import { buildResponse } from "./status";
+const { buildResponse } = require("./status");
 
-const _buildResponse = buildResponse;
-export { _buildResponse as buildResponse };
+exports.buildResponse = buildResponse;

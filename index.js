@@ -6,13 +6,13 @@
  */
 
 "use strict";
-import { getHandler, postHandler } from "./router";
+const { getHandler, postHandler } = require("./router");
 
-export async function handler(event) {
+exports.handler = async event => {
 	switch (event.httpMethod) {
 		case "GET":
 			return getHandler(event);
 		case "POST":
 			return postHandler(event);
 	}
-}
+};

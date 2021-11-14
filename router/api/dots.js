@@ -6,13 +6,13 @@
  */
 
 "use strict";
-import { sendMessageApi } from "./message";
+const { sendMessageApi } = require("./message");
 
-export function sendDots(recipientId) {
+exports.sendDots = recipientId => {
 	let dots = {
 		recipient: { id: recipientId },
 		sender_action: "typing_on"
 	};
 
 	sendMessageApi(dots);
-}
+};
