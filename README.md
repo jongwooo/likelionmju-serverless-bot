@@ -50,6 +50,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── .github
     ├── assets
     ├── node_modules
+    ├── router
     ├── .all-contributorsrc
     ├── .eslintrc.js
     ├── .gitignore
@@ -70,31 +71,33 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 3.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-4.  **`.all-contributorsrc`**: This is a configuration file for [All Contributors](https://allcontributors.org). All Contributors is a specification for recognizing contributors to an open source project in a way that rewards each and every contribution, not just code.
+4.  **`/router`**: This directory contains the functions that handler needs. For example, functions for processing GET / POST requests are included.
 
-5.  **`.eslintrc.js`**: This is a configuration file for [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+5.  **`.all-contributorsrc`**: This is a configuration file for [All Contributors](https://allcontributors.org). All Contributors is a specification for recognizing contributors to an open source project in a way that rewards each and every contribution, not just code.
 
-6.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+6.  **`.eslintrc.js`**: This is a configuration file for [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 
-7.  **`.prettierignore`**: This file tells Prettier which files it should not format for.
+7.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-8.  **`.prettierrc.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+8.  **`.prettierignore`**: This file tells Prettier which files it should not format for.
 
-9.  **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
+9.  **`.prettierrc.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-10. **`README.md`**: A text file containing useful reference information about your project.
+10. **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
-11. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
+11. **`README.md`**: A text file containing useful reference information about your project.
 
-12. **`index.test.js`**: This file is a Jest based code for testing a handler.
+12. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
 
-13. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
+13. **`index.test.js`**: This file is a Jest based code for testing a handler.
 
-14. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
+14. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-15. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+15. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
 
-16. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+16. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+17. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## ✅ Testing
 
