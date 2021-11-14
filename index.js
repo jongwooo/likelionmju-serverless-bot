@@ -8,11 +8,19 @@
 "use strict";
 const { getHandler, postHandler } = require("./router");
 
-exports.handler = async event => {
+exports.handler = (event, context, callback) => {
+	let response = "";
+
 	switch (event.httpMethod) {
 		case "GET":
-			return getHandler(event);
+			response = getHandler(event);
+			break;
 		case "POST":
-			return postHandler(event);
+			response = postHandler(event);
+			break;
 	}
+
+	callback(null, response);
+
+	return response;
 };

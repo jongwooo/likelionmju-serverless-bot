@@ -230,9 +230,14 @@ const unitTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
 		testName = `${testName} Case ${caseNum}`;
 	}
 
-	it(testName, async () => {
-		const props = await index.handler(caseType);
-		expect(props.body).toBe(toBeReturn);
+	it(testName, () => {
+		expect(
+			index.handler(caseType, null, (isNotNull, response) => {
+				if (isNotNull) {
+					console.error(response);
+				}
+			}).body
+		).toBe(toBeReturn);
 	});
 };
 
