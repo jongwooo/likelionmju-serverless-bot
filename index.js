@@ -17,7 +17,7 @@ const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
-exports.handler = (event, context, callback) => {
+exports.handler = async event => {
 	let method = event["httpMethod"];
 	let response = {};
 
@@ -76,8 +76,6 @@ exports.handler = (event, context, callback) => {
 			}
 			break;
 	}
-
-	callback(null, response);
 
 	return response;
 };
