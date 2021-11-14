@@ -11,7 +11,7 @@ const { buildResponse } = require("./response");
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 exports.getHandler = event => {
-	let response = "";
+	let response = buildResponse("200", "likelionMJU Bot");
 
 	if (event.queryStringParameters) {
 		let queryStringParams = event.queryStringParameters;
