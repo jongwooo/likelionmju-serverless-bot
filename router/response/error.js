@@ -8,6 +8,6 @@
 "use strict";
 exports.buildError = (status, message) => ({
 	statusCode: status,
-	body: JSON.stringify(message),
+	body: message,
 	headers: { "Content-Type": "application/json;" }
 });

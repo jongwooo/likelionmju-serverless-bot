@@ -8,6 +8,6 @@
 "use strict";
 exports.buildResponse = message => ({
 	statusCode: 200,
-	body: JSON.stringify(message),
+	body: message,
 	headers: { "Content-Type": "application/json;" }
 });
