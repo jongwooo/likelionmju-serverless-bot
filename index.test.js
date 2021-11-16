@@ -140,6 +140,10 @@ const POST_STATUS_500 = {
 	})
 };
 
+const OTHER_STATUS_400 = {
+	httpMethod: "PUT"
+};
+
 const httpGetMethodTests = [];
 
 httpGetMethodTests.push({
@@ -223,6 +227,16 @@ httpPostMethodTests.push({
 	toBeReturn: "Internal server error"
 });
 
+const httpOtherMethodTests = [
+	{
+		method: "PUT",
+		statusCode: 400,
+		caseNum: null,
+		caseType: OTHER_STATUS_400,
+		toBeReturn: "Bad request"
+	}
+];
+
 const unitTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
 	let testName = `${method}:: status ${statusCode}`;
 
@@ -257,3 +271,4 @@ const Tester = (describeText, testCases) => {
 
 Tester("HTTP GET Method Test", httpGetMethodTests);
 Tester("HTTP POST Method Test", httpPostMethodTests);
+Tester("HTTP Other Method Test", httpOtherMethodTests);
