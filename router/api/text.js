@@ -18,7 +18,7 @@ const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
 exports.sendTextMessage = (recipientId, receivedMessage) => {
 	let texts = "";
 	let quickReplies = [];
-	let textMessage;
+	let textMessage = {};
 
 	for (const token in questions) {
 		if (!IGNORE_REPLY.includes(token)) {
