@@ -6,8 +6,8 @@
  */
 
 "use strict";
-const { buildResponse } = require("./success");
-const { buildError } = require("./error");
-
-exports.buildResponse = buildResponse;
-exports.buildError = buildError;
+exports.buildResponse = message => ({
+	statusCode: 200,
+	body: JSON.stringify(message),
+	headers: { "Content-Type": "application/json;" }
+});

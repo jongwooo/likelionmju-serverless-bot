@@ -7,17 +7,22 @@
 
 "use strict";
 const { getHandler, postHandler } = require("./router");
+const { buildError } = require("./router/response");
 
 exports.handler = (event, context, callback) => {
-	let response = "";
+	let response = {};
 
 	switch (event.httpMethod) {
 		case "GET":
 			response = getHandler(event);
 			break;
+
 		case "POST":
 			response = postHandler(event);
 			break;
+
+		default:
+			response = buildError(400, "Bad request");
 	}
 
 	callback(null, response);

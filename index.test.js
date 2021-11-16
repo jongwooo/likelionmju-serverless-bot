@@ -144,56 +144,56 @@ const httpGetMethodTests = [];
 
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "200",
+	statusCode: 200,
 	caseNum: 1,
 	caseType: GET_STATUS_200_CASE_1,
 	toBeReturn: "likelionMJU Bot"
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "200",
+	statusCode: 200,
 	caseNum: 2,
 	caseType: GET_STATUS_200_CASE_2,
 	toBeReturn: CHALLENGE_TOKEN
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "400",
+	statusCode: 400,
 	caseNum: 1,
 	caseType: GET_STATUS_400_CASE_1,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "400",
+	statusCode: 400,
 	caseNum: 2,
 	caseType: GET_STATUS_400_CASE_2,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "400",
+	statusCode: 400,
 	caseNum: 3,
 	caseType: GET_STATUS_400_CASE_3,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "400",
+	statusCode: 400,
 	caseNum: 4,
 	caseType: GET_STATUS_400_CASE_4,
 	toBeReturn: "Bad request"
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "401",
+	statusCode: 401,
 	caseNum: null,
 	caseType: GET_STATUS_401,
 	toBeReturn: "Incorrect verify token"
 });
 httpGetMethodTests.push({
 	method: "GET",
-	statusCode: "412",
+	statusCode: 412,
 	caseNum: null,
 	caseType: GET_STATUS_412,
 	toBeReturn: "Precondition failed"
@@ -203,21 +203,21 @@ const httpPostMethodTests = [];
 
 httpPostMethodTests.push({
 	method: "POST",
-	statusCode: "200",
+	statusCode: 200,
 	caseNum: 1,
 	caseType: POST_STATUS_200_CASE_1,
 	toBeReturn: "Success"
 });
 httpPostMethodTests.push({
 	method: "POST",
-	statusCode: "200",
+	statusCode: 200,
 	caseNum: 2,
 	caseType: POST_STATUS_200_CASE_2,
 	toBeReturn: "Success"
 });
 httpPostMethodTests.push({
 	method: "POST",
-	statusCode: "500",
+	statusCode: 500,
 	caseNum: null,
 	caseType: POST_STATUS_500,
 	toBeReturn: "Internal server error"

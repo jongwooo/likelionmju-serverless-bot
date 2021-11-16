@@ -6,11 +6,11 @@
  */
 
 "use strict";
-const { buildResponse } = require("./response");
+const { buildResponse, buildError } = require("./response");
 const { sendDots, sendTextMessage } = require("./api");
 
 exports.postHandler = event => {
-	let response = "";
+	let response = {};
 
 	try {
 		let bodyEvent = JSON.parse(event.body);
@@ -21,9 +21,9 @@ exports.postHandler = event => {
 			sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
 		}
 
-		response = buildResponse("200");
+		response = buildResponse("Success");
 	} catch (error) {
-		response = buildResponse("500");
+		response = buildError(500, "Internal server error");
 	}
 
 	return response;

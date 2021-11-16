@@ -6,12 +6,12 @@
  */
 
 "use strict";
-const { buildResponse } = require("./response");
+const { buildResponse, buildError } = require("./response");
 
 const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
 
 exports.getHandler = event => {
-	let response = buildResponse("200", "likelionMJU Bot");
+	let response = buildResponse("likelionMJU Bot");
 
 	if (event.queryStringParameters) {
 		let queryStringParams = event.queryStringParameters;
@@ -24,19 +24,19 @@ exports.getHandler = event => {
 
 		switch (status.join(", ")) {
 			case "true, true, true":
-				response = buildResponse("200", queryStringParams["hub.challenge"]);
+				response = buildResponse(queryStringParams["hub.challenge"]);
 				break;
 
 			case "true, false, true":
-				response = buildResponse("401");
+				response = buildError(401, "Incorrect verify token");
 				break;
 
 			case "false, true, true":
-				response = buildResponse("412");
+				response = buildError(412, "Precondition failed");
 				break;
 
 			default:
-				response = buildResponse("400");
+				response = buildError(400, "Bad request");
 				break;
 		}
 	}
