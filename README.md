@@ -27,9 +27,6 @@
   <a href="https://www.codefactor.io/repository/github/jongwooo/likelionmju-serverless-bot">
     <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/jongwooo/likelionmju-serverless-bot/badge">
   </a>
-  <a href="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot">
-    <img alt="Codecov coverage reports" src="https://codecov.io/gh/jongwooo/likelionmju-serverless-bot/branch/master/graph/badge.svg" />
-  </a>
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions?query=workflow%3A%22PR+Test%22">
     <img alt="PR Test Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/PR%20Test/badge.svg">
   </a>
