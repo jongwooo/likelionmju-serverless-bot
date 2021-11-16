@@ -9,10 +9,8 @@
 const { sendMessageApi } = require("./message");
 
 exports.sendDots = recipientId => {
-	let dots = {
+	sendMessageApi({
 		recipient: { id: recipientId },
 		sender_action: "typing_on"
-	};
-
-	sendMessageApi(dots);
+	});
 };
