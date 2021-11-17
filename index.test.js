@@ -237,7 +237,7 @@ const httpOtherMethodTests = [
 	}
 ];
 
-const unitTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
+const buildTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
 	let testName = `${method}:: status ${statusCode}`;
 
 	if (caseNum) {
@@ -255,10 +255,10 @@ const unitTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
 	});
 };
 
-const Tester = (describeText, testCases) => {
+const executeTest = (describeText, testCases) => {
 	describe(describeText, () => {
 		for (const testCase of testCases) {
-			unitTest(
+			buildTest(
 				testCase.method,
 				testCase.statusCode,
 				testCase.caseNum,
@@ -269,6 +269,6 @@ const Tester = (describeText, testCases) => {
 	});
 };
 
-Tester("HTTP GET Method Test", httpGetMethodTests);
-Tester("HTTP POST Method Test", httpPostMethodTests);
-Tester("HTTP Other Method Test", httpOtherMethodTests);
+executeTest("HTTP GET Method Test", httpGetMethodTests);
+executeTest("HTTP POST Method Test", httpPostMethodTests);
+executeTest("HTTP Other Method Test", httpOtherMethodTests);
