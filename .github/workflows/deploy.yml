@@ -42,3 +42,12 @@ jobs:
           aws_region: ap-northeast-2
           function_name: chatbot
           zip_file: bundle.zip
+      - name: Notify the deploy results with Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          author_name: Deploy to Lambda
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
