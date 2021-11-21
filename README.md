@@ -58,6 +58,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── .prettierrc.js
     ├── LICENSE
     ├── README.md
+    ├── SECURITY.md
     ├── index.js
     ├── index.test.js
     ├── jest.config.js
@@ -87,17 +88,19 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 11. **`README.md`**: A text file containing useful reference information about your project.
 
-12. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
+12. **`SECURITY.md`**: This file defines how users should report security vulnerabilities for this repository.
 
-13. **`index.test.js`**: This file is a Jest based code for testing a handler.
+13. **`index.js`**: The handler of this file is the method in your Lambda function that processes events. When you invoke a function, the runtime runs the handler method. When the handler exits or returns a response, it becomes available to handle another event.
 
-14. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
+14. **`index.test.js`**: This file is a Jest based code for testing a handler.
 
-15. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
+15. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-16. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+16. **`meta-config.js`**: This file contains answers to questions, default replies, and answers to be ignored.
 
-17. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+17. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+18. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## ✅ Testing
 
