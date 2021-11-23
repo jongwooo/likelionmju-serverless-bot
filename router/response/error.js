@@ -6,7 +6,7 @@
  */
 
 "use strict";
-exports.buildError = (status, message) => ({
+exports.buildError = (message = "Bad request", status = 400) => ({
 	statusCode: status,
 	body: message,
 	headers: { "Content-Type": "application/json;" }

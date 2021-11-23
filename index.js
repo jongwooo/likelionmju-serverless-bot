@@ -22,7 +22,7 @@ exports.handler = (event, context, callback) => {
 			break;
 
 		default:
-			response = buildError(400, "Bad request");
+			response = buildError();
 	}
 
 	callback(null, response);

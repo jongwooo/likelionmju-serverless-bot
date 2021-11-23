@@ -6,8 +6,8 @@
  */
 
 "use strict";
-exports.buildResponse = message => ({
-	statusCode: 200,
+exports.buildResponse = (message = "Success", status = 200) => ({
+	statusCode: status,
 	body: message,
 	headers: { "Content-Type": "application/json;" }
 });

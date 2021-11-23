@@ -28,15 +28,15 @@ exports.getHandler = event => {
 				break;
 
 			case "true, false, true":
-				response = buildError(401, "Incorrect verify token");
+				response = buildError("Incorrect verify token", 401);
 				break;
 
 			case "false, true, true":
-				response = buildError(412, "Precondition failed");
+				response = buildError("Precondition failed", 412);
 				break;
 
 			default:
-				response = buildError(400, "Bad request");
+				response = buildError();
 				break;
 		}
 	}

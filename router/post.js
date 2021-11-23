@@ -21,9 +21,9 @@ exports.postHandler = event => {
 			sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text);
 		}
 
-		response = buildResponse("Success");
+		response = buildResponse();
 	} catch (error) {
-		response = buildError(500, "Internal server error");
+		response = buildError("Internal server error", 500);
 	}
 
 	return response;
