@@ -55,7 +55,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── .eslintrc.js
     ├── .gitignore
     ├── .prettierignore
-    ├── .prettierrc.js
+    ├── .prettierrc
     ├── LICENSE
     ├── README.md
     ├── SECURITY.md
@@ -82,7 +82,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 8.  **`.prettierignore`**: This file tells Prettier which files it should not format for.
 
-9.  **`.prettierrc.js`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+9.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
 10. **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
