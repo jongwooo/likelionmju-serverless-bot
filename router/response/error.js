@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict";
+"use strict"
 exports.buildError = (message = "Bad request", status = 400) => ({
-	statusCode: status,
-	body: message,
-	headers: { "Content-Type": "application/json;" }
-});
+    statusCode: status,
+    body: message,
+    headers: { "Content-Type": "application/json;" },
+})

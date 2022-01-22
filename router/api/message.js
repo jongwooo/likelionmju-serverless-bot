@@ -5,21 +5,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict";
-const request = require("request");
+"use strict"
+const request = require("request")
 
-const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION;
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN
 
 exports.sendMessageApi = messages => {
-	request(
-		{
-			url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
-			method: "POST",
-			json: messages
-		},
-		error => {
-			if (error) throw new Error();
-		}
-	);
-};
+    request(
+        {
+            url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
+            method: "POST",
+            json: messages,
+        },
+        error => {
+            if (error) throw new Error()
+        },
+    )
+}

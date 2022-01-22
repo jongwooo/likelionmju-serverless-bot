@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict";
-const { sendDots } = require("./dots");
-const { sendTextMessage } = require("./text");
+"use strict"
+const { sendDots } = require("./dots")
+const { sendTextMessage } = require("./text")
 
-exports.sendDots = sendDots;
-exports.sendTextMessage = sendTextMessage;
+exports.sendDots = sendDots
+exports.sendTextMessage = sendTextMessage

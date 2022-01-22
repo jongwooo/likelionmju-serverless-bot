@@ -5,12 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict";
-const { sendMessageApi } = require("./message");
+"use strict"
+const { sendMessageApi } = require("./message")
 
 exports.sendDots = recipientId => {
-	sendMessageApi({
-		recipient: { id: recipientId },
-		sender_action: "typing_on"
-	});
-};
+    sendMessageApi({
+        recipient: { id: recipientId },
+        sender_action: "typing_on",
+    })
+}

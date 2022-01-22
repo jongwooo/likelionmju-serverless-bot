@@ -5,9 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict";
+"use strict"
 exports.buildResponse = (message = "Success", status = 200) => ({
-	statusCode: status,
-	body: message,
-	headers: { "Content-Type": "application/json;" }
-});
+    statusCode: status,
+    body: message,
+    headers: { "Content-Type": "application/json;" },
+})
