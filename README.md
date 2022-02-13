@@ -50,7 +50,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── .github
     ├── assets
     ├── node_modules
-    ├── router
+    ├── routes
     ├── .all-contributorsrc
     ├── .eslintrc.js
     ├── .gitignore
@@ -72,7 +72,7 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 3.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-4.  **`/router`**: This directory contains the functions that handler needs. For example, functions for processing GET / POST requests are included.
+4.  **`/routes`**: This directory contains the functions that handler needs. For example, functions for processing GET / POST requests are included.
 
 5.  **`.all-contributorsrc`**: This is a configuration file for [All Contributors](https://allcontributors.org). All Contributors is a specification for recognizing contributors to an open source project in a way that rewards each and every contribution, not just code.
 
