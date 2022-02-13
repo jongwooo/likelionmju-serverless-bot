@@ -7,7 +7,7 @@
 
 "use strict"
 const metaConfig = require("../../meta-config")
-const { sendMessageApi } = require("./message")
+const { sendMessageApi } = require("./api")
 
 const DEFAULT_REPLY = metaConfig.DEFAULT_REPLY
 const IGNORE_REPLY = metaConfig.IGNORE_REPLY

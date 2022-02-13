@@ -6,8 +6,8 @@
  */
 
 "use strict"
-const { getHandler, postHandler } = require("./router")
-const { buildError } = require("./router/response")
+const { getHandler, postHandler } = require("./routes")
+const { buildError } = require("./routes/response")
 
 exports.handler = (event, context, callback) => {
     let response = {}
