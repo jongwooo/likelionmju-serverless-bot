@@ -6,12 +6,9 @@
  */
 
 "use strict"
-const metaConfig = require("../../meta-config")
 const { sendMessageApi } = require("./api")
-
-const DEFAULT_REPLY = metaConfig.DEFAULT_REPLY
-const IGNORE_REPLY = metaConfig.IGNORE_REPLY
-const questions = metaConfig.questions
+const metaConfig = require("../../meta-config")
+const { DEFAULT_REPLY, IGNORE_REPLY, questions } = metaConfig
 
 const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION
 
