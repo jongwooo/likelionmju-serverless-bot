@@ -237,7 +237,9 @@ const httpOtherMethodTests = [
     },
 ]
 
-const buildTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
+const buildTest = testCase => {
+    const { method, statusCode, caseNum, caseType, toBeReturn } = testCase
+
     let defaultTestName = `${method}:: status ${statusCode}`
     let testName = caseNum ? `${defaultTestName} Case ${caseNum}` : defaultTestName
 
@@ -254,9 +256,7 @@ const buildTest = (method, statusCode, caseNum, caseType, toBeReturn) => {
 
 const executeTest = (describeText, testCases) => {
     describe(describeText, () => {
-        for (const testCase of testCases) {
-            buildTest(testCase.method, testCase.statusCode, testCase.caseNum, testCase.caseType, testCase.toBeReturn)
-        }
+        testCases.map(testCase => buildTest(testCase))
     })
 }
 
