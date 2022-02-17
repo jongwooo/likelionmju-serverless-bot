@@ -7,9 +7,7 @@
 
 "use strict"
 const request = require("request")
-
-const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN
+const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN } = require("../../meta-config")
 
 exports.sendMessageApi = messages => {
     request(

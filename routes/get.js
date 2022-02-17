@@ -7,8 +7,7 @@
 
 "use strict"
 const { buildResponse, buildError } = require("./response")
-
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN
+const { VERIFY_TOKEN } = require("../meta-config")
 
 exports.getHandler = event => {
     let response = buildResponse("likelionMJU Bot")

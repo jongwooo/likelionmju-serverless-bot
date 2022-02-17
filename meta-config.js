@@ -6,6 +6,8 @@
  */
 
 "use strict"
+const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN, VERIFY_TOKEN, TEST_USER_ID } = process.env
+
 const DEFAULT_REPLY =
     "안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n\n아래 제시된 키워드 중에서\n선택하여 질문해주세요."
 const IGNORE_REPLY = ["Unit test", "멋탈!"]
@@ -23,6 +25,12 @@ questions["Unit test"] = "Unit Testing with Jest"
 questions["멋탈!"] =
     "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   (  (ヽ\n    |　|、 ＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ"
 
-module.exports.DEFAULT_REPLY = DEFAULT_REPLY
-module.exports.IGNORE_REPLY = IGNORE_REPLY
-module.exports.questions = questions
+module.exports = {
+    FACEBOOK_API_VERSION,
+    PAGE_ACCESS_TOKEN,
+    VERIFY_TOKEN,
+    TEST_USER_ID,
+    DEFAULT_REPLY,
+    IGNORE_REPLY,
+    questions,
+}

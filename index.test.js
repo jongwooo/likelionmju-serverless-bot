@@ -7,10 +7,8 @@
 
 "use strict"
 const index = require("./index.js")
-
+const { VERIFY_TOKEN, TEST_USER_ID } = require("./meta-config")
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString()
-const VERIFY_TOKEN = process.env.VERIFY_TOKEN
-const TEST_USER_ID = process.env.TEST_USER_ID
 
 const GET_STATUS_200_CASE_1 = {
     httpMethod: "GET",

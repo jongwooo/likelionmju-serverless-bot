@@ -7,10 +7,7 @@
 
 "use strict"
 const { sendMessageApi } = require("./api")
-const metaConfig = require("../../meta-config")
-const { DEFAULT_REPLY, IGNORE_REPLY, questions } = metaConfig
-
-const FACEBOOK_API_VERSION = process.env.FACEBOOK_API_VERSION
+const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, questions } = require("../../meta-config")
 
 exports.sendTextMessage = (recipientId, receivedMessage) => {
     let texts = ""
