@@ -6,8 +6,8 @@
  */
 
 "use strict"
-const index = require("./index.js")
-const { VERIFY_TOKEN, TEST_USER_ID } = require("./meta-config")
+const app = require("../app")
+const { VERIFY_TOKEN, TEST_USER_ID } = require("../../meta-config")
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString()
 
 const GET_STATUS_200_CASE_1 = {
@@ -243,7 +243,7 @@ const buildTest = testCase => {
 
     it(testName, () => {
         expect(
-            index.handler(caseType, null, (isNotNull, response) => {
+            app.handler(caseType, null, (isNotNull, response) => {
                 if (isNotNull) {
                     console.error(response)
                 }

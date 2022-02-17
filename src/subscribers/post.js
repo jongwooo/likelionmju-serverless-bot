@@ -6,8 +6,8 @@
  */
 
 "use strict"
-const { buildResponse, buildError } = require("./response")
-const { sendDots, sendTextMessage } = require("./api")
+const { buildResponse, buildError } = require("../routes")
+const { sendDots, sendTextMessage } = require("../services")
 
 exports.postHandler = event => {
     let response = {}

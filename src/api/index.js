@@ -9,7 +9,7 @@
 const request = require("request")
 const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN } = require("../../meta-config")
 
-exports.sendMessageApi = messages => {
+exports.sendMessage = messages => {
     request(
         {
             url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,

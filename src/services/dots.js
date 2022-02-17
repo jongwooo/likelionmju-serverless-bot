@@ -6,8 +6,11 @@
  */
 
 "use strict"
-const { sendDots } = require("./dots")
-const { sendTextMessage } = require("./text")
+const { sendMessage } = require("../api")
 
-exports.sendDots = sendDots
-exports.sendTextMessage = sendTextMessage
+exports.sendDots = recipientId => {
+    sendMessage({
+        recipient: { id: recipientId },
+        sender_action: "typing_on",
+    })
+}

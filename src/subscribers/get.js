@@ -6,8 +6,8 @@
  */
 
 "use strict"
-const { buildResponse, buildError } = require("./response")
-const { VERIFY_TOKEN } = require("../meta-config")
+const { buildResponse, buildError } = require("../routes")
+const { VERIFY_TOKEN } = require("../../meta-config")
 
 exports.getHandler = event => {
     let response = buildResponse("likelionMJU Bot")

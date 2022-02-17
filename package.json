@@ -3,7 +3,7 @@
     "private": true,
     "version": "1.0.0",
     "description": "likelionMJU Bot is a simple facebook messenger bot to introduce university club;likelionMJU",
-    "main": "index.js",
+    "main": "src/app.js",
     "scripts": {
         "format": "prettier --check  \"**/*.{md,js,json,yml}\"",
         "format:fix": "prettier --write  \"**/*.{md,js,json,yml}\"",
