@@ -6,7 +6,7 @@
  */
 
 "use strict"
-const { buildResponse } = require("./success")
+const { buildResponse } = require("./response")
 const { buildError } = require("./error")
 
 exports.buildResponse = buildResponse
