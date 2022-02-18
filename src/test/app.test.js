@@ -7,7 +7,7 @@
 
 "use strict"
 const app = require("../app")
-const { VERIFY_TOKEN, TEST_USER_ID } = require("../../meta-config")
+const { VERIFY_TOKEN, TEST_USER_ID } = require("../config")
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString()
 
 const GET_STATUS_200_CASE_1 = {
