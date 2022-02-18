@@ -7,7 +7,7 @@
 
 "use strict"
 const { buildResponse, buildError } = require("../routes")
-const { sendDots, sendTextMessage } = require("../services")
+const { sendDots, sendTexts } = require("../services")
 
 exports.postHandler = event => {
     let response = {}
@@ -18,7 +18,7 @@ exports.postHandler = event => {
 
         if (messagingEvent.message.text && messagingEvent.sender.id) {
             sendDots(messagingEvent.sender.id)
-            sendTextMessage(messagingEvent.sender.id, messagingEvent.message.text)
+            sendTexts(messagingEvent.sender.id, messagingEvent.message.text)
         }
 
         response = buildResponse()

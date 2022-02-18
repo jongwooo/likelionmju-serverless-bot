@@ -10,4 +10,4 @@ const { sendDots } = require("./dots")
 const { sendTexts } = require("./text")
 
 exports.sendDots = sendDots
-exports.sendTextMessage = sendTexts
+exports.sendTexts = sendTexts
