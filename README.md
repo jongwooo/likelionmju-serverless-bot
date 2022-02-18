@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/likelionmju">
-    <img alt="logo" src="assets/likelionmju_logo.png" width="60" />
+    <img alt="logo" src="src/assets/likelionmju_logo.png" width="60" />
   </a>
 </p>
 
@@ -39,7 +39,7 @@
 </p>
 
 <p align="center">
-  <img alt="mockup" src="assets/mockup.png">
+  <img alt="mockup" src="src/assets/mockup.png">
 </p>
 
 ## 🧐 What's inside?
