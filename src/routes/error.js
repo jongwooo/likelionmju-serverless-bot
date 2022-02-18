@@ -6,8 +6,6 @@
  */
 
 "use strict"
-exports.buildError = (message = "Bad request", status = 400) => ({
-    statusCode: status,
-    body: message,
-    headers: { "Content-Type": "application/json;" },
-})
+const { buildResponse } = require("./response")
+
+exports.buildError = (message = "Bad request", status = 400) => buildResponse(message, status)
