@@ -7,7 +7,6 @@
     "scripts": {
         "format": "prettier --check  \"**/*.{md,js,json,yml}\"",
         "format:fix": "prettier --write  \"**/*.{md,js,json,yml}\"",
-        "lint": "eslint .",
         "test": "jest --config jest.config.js"
     },
     "repository": {
