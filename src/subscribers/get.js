@@ -6,10 +6,14 @@
  */
 
 "use strict"
-const { buildResponse, buildError } = require("../routes")
-const { VERIFY_TOKEN } = require("../config")
+import { buildResponse, buildError } from "../routes"
+import { VERIFY_TOKEN } from "../config"
 
-exports.getHandler = event => {
+const isParamsNotEmpty = params => {
+    return typeof params !== "undefined" && params !== null && params !== ""
+}
+
+const getHandler = event => {
     let response = buildResponse("likelionMJU Bot")
 
     if (event.queryStringParameters) {
@@ -43,6 +47,4 @@ exports.getHandler = event => {
     return response
 }
 
-const isParamsNotEmpty = params => {
-    return typeof params !== "undefined" && params !== null && params !== ""
-}
+export default getHandler

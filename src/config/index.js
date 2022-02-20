@@ -25,12 +25,4 @@ questions["Unit test"] = "Unit Testing with Jest"
 questions["멋탈!"] =
     "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   (  (ヽ\n    |　|、 ＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ"
 
-module.exports = {
-    FACEBOOK_API_VERSION,
-    PAGE_ACCESS_TOKEN,
-    VERIFY_TOKEN,
-    TEST_USER_ID,
-    DEFAULT_REPLY,
-    IGNORE_REPLY,
-    questions,
-}
+export { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN, VERIFY_TOKEN, TEST_USER_ID, DEFAULT_REPLY, IGNORE_REPLY, questions }

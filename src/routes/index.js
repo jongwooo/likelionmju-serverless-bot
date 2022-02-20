@@ -6,8 +6,7 @@
  */
 
 "use strict"
-const { buildResponse } = require("./response")
-const { buildError } = require("./error")
+import buildResponse from "./response"
+import buildError from "./error"
 
-exports.buildResponse = buildResponse
-exports.buildError = buildError
+export { buildResponse, buildError }

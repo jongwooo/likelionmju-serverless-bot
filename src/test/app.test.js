@@ -6,8 +6,9 @@
  */
 
 "use strict"
-const app = require("../app")
-const { VERIFY_TOKEN, TEST_USER_ID } = require("../config")
+import handler from "../app"
+import { VERIFY_TOKEN, TEST_USER_ID } from "../config"
+
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString()
 
 const GET_STATUS_200_CASE_1 = {
@@ -243,7 +244,7 @@ const buildTest = testCase => {
 
     it(testName, () => {
         expect(
-            app.handler(caseType, null, (isNotNull, response) => {
+            handler(caseType, null, (isNotNull, response) => {
                 if (isNotNull) {
                     console.error(response)
                 }

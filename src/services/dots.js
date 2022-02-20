@@ -6,11 +6,13 @@
  */
 
 "use strict"
-const { sendMessage } = require("../api")
+import sendMessage from "../api"
 
-exports.sendDots = recipientId => {
+const sendDots = recipientId => {
     sendMessage({
         recipient: { id: recipientId },
         sender_action: "typing_on",
     })
 }
+
+export default sendDots

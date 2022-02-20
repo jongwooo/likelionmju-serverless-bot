@@ -6,8 +6,7 @@
  */
 
 "use strict"
-const { sendDots } = require("./dots")
-const { sendTexts } = require("./text")
+import sendDots from "./dots"
+import sendTexts from "./text"
 
-exports.sendDots = sendDots
-exports.sendTexts = sendTexts
+export { sendDots, sendTexts }

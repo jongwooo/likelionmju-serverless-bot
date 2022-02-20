@@ -6,8 +6,10 @@
  */
 
 "use strict"
-exports.buildResponse = (message = "Success", status = 200) => ({
+const buildResponse = (message = "Success", status = 200) => ({
     statusCode: status,
     body: message,
     headers: { "Content-Type": "application/json;" },
 })
+
+export default buildResponse
