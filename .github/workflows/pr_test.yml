@@ -43,11 +43,6 @@ jobs:
                         body:"An error has occurred. Please check your code and try again.",
                         event: "REQUEST_CHANGES"
                       })
-                      await github.pulls.update({
-                        ...context.repo,
-                        pull_number,
-                        state: "closed"
-                      })
               if: failure()
 
             - name: Notify that Pull request is open
