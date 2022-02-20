@@ -6,6 +6,8 @@
  */
 
 "use strict"
-const { buildResponse } = require("./response")
+import buildResponse from "./response"
 
-exports.buildError = (message = "Bad request", status = 400) => buildResponse(message, status)
+const buildError = (message = "Bad request", status = 400) => buildResponse(message, status)
+
+export default buildError

@@ -6,10 +6,10 @@
  */
 
 "use strict"
-const { sendMessage } = require("../api")
-const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, questions } = require("../config")
+import sendMessage from "../api"
+import { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, questions } from "../config"
 
-exports.sendTexts = (recipientId, receivedMessage) => {
+const sendTexts = (recipientId, receivedMessage) => {
     let texts = ""
     let quickReplies = []
     let textMessage = {}
@@ -48,3 +48,5 @@ exports.sendTexts = (recipientId, receivedMessage) => {
 
     sendMessage(textMessage)
 }
+
+export default sendTexts

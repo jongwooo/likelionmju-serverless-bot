@@ -6,10 +6,10 @@
  */
 
 "use strict"
-const { getHandler, postHandler } = require("./subscribers")
-const { buildError } = require("./routes")
+import { getHandler, postHandler } from "./subscribers"
+import { buildError } from "./routes"
 
-exports.handler = (event, context, callback) => {
+const handler = (event, context, callback) => {
     let response = {}
 
     switch (event.httpMethod) {
@@ -29,3 +29,5 @@ exports.handler = (event, context, callback) => {
 
     return response
 }
+
+export default handler

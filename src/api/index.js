@@ -6,10 +6,10 @@
  */
 
 "use strict"
-const request = require("request")
-const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN } = require("../config")
+import request from "request"
+import { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN } from "../config"
 
-exports.sendMessage = messages => {
+const sendMessage = messages => {
     request(
         {
             url: `https://graph.facebook.com/v${FACEBOOK_API_VERSION}/me/messages?access_token=${PAGE_ACCESS_TOKEN}`,
@@ -21,3 +21,5 @@ exports.sendMessage = messages => {
         },
     )
 }
+
+export default sendMessage

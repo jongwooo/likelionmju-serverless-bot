@@ -6,10 +6,10 @@
  */
 
 "use strict"
-const { buildResponse, buildError } = require("../routes")
-const { sendDots, sendTexts } = require("../services")
+import { buildResponse, buildError } from "../routes"
+import { sendDots, sendTexts } from "../services"
 
-exports.postHandler = event => {
+const postHandler = event => {
     let response = {}
 
     try {
@@ -28,3 +28,5 @@ exports.postHandler = event => {
 
     return response
 }
+
+export default postHandler
