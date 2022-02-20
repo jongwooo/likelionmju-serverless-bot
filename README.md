@@ -51,7 +51,6 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
     ├── node_modules
     ├── src
     ├── .all-contributorsrc
-    ├── .eslintrc.js
     ├── .gitignore
     ├── .prettierignore
     ├── .prettierrc
@@ -71,25 +70,23 @@ A quick look at the top-level files and directories you'll see in a likelionMJU 
 
 4. **`.all-contributorsrc`**: This is a configuration file for [All Contributors](https://allcontributors.org). All Contributors is a specification for recognizing contributors to an open source project in a way that rewards each and every contribution, not just code.
 
-5. **`.eslintrc.js`**: This is a configuration file for [ESLint](https://eslint.org/). ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+5. **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-6. **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+6. **`.prettierignore`**: This file tells Prettier which files it should not format for.
 
-7. **`.prettierignore`**: This file tells Prettier which files it should not format for.
+7. **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-8. **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+8. **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
 
-9. **`LICENSE`**: likelionMJU Bot is licensed under the MIT license.
+9. **`README.md`**: A text file containing useful reference information about your project.
 
-10. **`README.md`**: A text file containing useful reference information about your project.
+10. **`SECURITY.md`**: This file defines how users should report security vulnerabilities for this repository.
 
-11. **`SECURITY.md`**: This file defines how users should report security vulnerabilities for this repository.
+11. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
 
-12. **`jest.config.js`**: This is a configuration file for [Jest](https://jestjs.io/). Jest is a JavaScript testing framework.
+12. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-13. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
-
-14. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+13. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
 ## ✅ Testing
 
