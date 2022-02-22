@@ -11,8 +11,7 @@ const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, questions } = require
 
 exports.sendTexts = (recipientId, receivedMessage) => {
     let texts = ""
-    let quickReplies = []
-    let textMessage = {}
+    const quickReplies = []
 
     for (const token in questions) {
         if (!IGNORE_REPLY.includes(token)) {
@@ -36,7 +35,7 @@ exports.sendTexts = (recipientId, receivedMessage) => {
         texts = DEFAULT_REPLY
     }
 
-    textMessage = {
+    sendMessage({
         recipient: {
             id: recipientId,
         },
@@ -44,7 +43,5 @@ exports.sendTexts = (recipientId, receivedMessage) => {
             text: texts,
             quick_replies: quickReplies,
         },
-    }
-
-    sendMessage(textMessage)
+    })
 }

@@ -10,21 +10,19 @@ const { buildResponse, buildError } = require("../routes")
 const { sendDots, sendTexts } = require("../services")
 
 exports.postHandler = event => {
-    let response = {}
-
     try {
-        let bodyEvent = JSON.parse(event.body)
-        let messagingEvent = bodyEvent.entry[0].messaging[0]
+        const {
+            message: { text },
+            sender: { id },
+        } = JSON.parse(event.body).entry[0].messaging[0]
 
-        if (messagingEvent.message.text && messagingEvent.sender.id) {
-            sendDots(messagingEvent.sender.id)
-            sendTexts(messagingEvent.sender.id, messagingEvent.message.text)
+        if (text && id) {
+            sendDots(id)
+            sendTexts(id, text)
         }
 
-        response = buildResponse()
+        return buildResponse()
     } catch (error) {
-        response = buildError("Internal server error", 500)
+        return buildError("Internal server error", 500)
     }
-
-    return response
 }
