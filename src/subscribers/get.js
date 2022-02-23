@@ -10,39 +10,28 @@ const { buildResponse, buildError } = require("../routes")
 const { VERIFY_TOKEN } = require("../config")
 
 exports.getHandler = event => {
-    let response = buildResponse("likelionMJU Bot")
-
     if (event.queryStringParameters) {
-        let queryStringParams = event.queryStringParameters
-        let status = [
+        const queryStringParams = event.queryStringParameters
+        const status = [
             queryStringParams["hub.mode"] === "subscribe",
-            queryStringParams["hub.verify_token"] === VERIFY_TOKEN &&
-                isParamsNotEmpty(queryStringParams["hub.verify_token"]),
-            isParamsNotEmpty(queryStringParams["hub.challenge"]),
+            queryStringParams["hub.verify_token"] === VERIFY_TOKEN,
+            Object.prototype.hasOwnProperty.call(queryStringParams, "hub.challenge"),
         ]
 
         switch (status.join(", ")) {
             case "true, true, true":
-                response = buildResponse(queryStringParams["hub.challenge"])
-                break
+                return buildResponse(queryStringParams["hub.challenge"])
 
             case "true, false, true":
-                response = buildError("Incorrect verify token", 401)
-                break
+                return buildError("Incorrect verify token", 401)
 
             case "false, true, true":
-                response = buildError("Precondition failed", 412)
-                break
+                return buildError("Precondition failed", 412)
 
             default:
-                response = buildError()
-                break
+                return buildError()
         }
     }
 
-    return response
-}
-
-const isParamsNotEmpty = params => {
-    return typeof params !== "undefined" && params !== null && params !== ""
+    return buildResponse("likelionMJU Bot")
 }
