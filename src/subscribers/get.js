@@ -12,10 +12,16 @@ const { VERIFY_TOKEN } = require("../config")
 exports.getHandler = event => {
     if (event.queryStringParameters) {
         const queryStringParams = event.queryStringParameters
+
+        const hasOwnParams = (key, value) => {
+            const hasOwnKey = Object.prototype.hasOwnProperty.call(queryStringParams, key)
+            return value ? hasOwnKey && queryStringParams[key] === value : hasOwnKey
+        }
+
         const status = [
-            queryStringParams["hub.mode"] === "subscribe",
-            queryStringParams["hub.verify_token"] === VERIFY_TOKEN,
-            Object.prototype.hasOwnProperty.call(queryStringParams, "hub.challenge"),
+            hasOwnParams("hub.mode", "subscribe"),
+            hasOwnParams("hub.verify_token", VERIFY_TOKEN),
+            hasOwnParams("hub.challenge"),
         ]
 
         switch (status.join(", ")) {
