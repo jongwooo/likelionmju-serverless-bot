@@ -11,19 +11,12 @@ const { buildError } = require("./routes")
 
 exports.handler = (event, context, callback) => {
     let response = {}
-
-    switch (event.httpMethod) {
-        case "GET":
-            response = getHandler(event)
-            break
-
-        case "POST":
-            response = postHandler(event)
-            break
-
-        default:
-            response = buildError()
+    const responseMapper = {
+        GET: getHandler(event),
+        POST: postHandler(event),
     }
+
+    response = responseMapper[event.httpMethod] || buildError()
 
     callback(null, response)
 
