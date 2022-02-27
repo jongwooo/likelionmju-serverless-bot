@@ -16,10 +16,8 @@ exports.postHandler = event => {
             sender: { id },
         } = JSON.parse(event.body).entry[0].messaging[0]
 
-        if (text && id) {
-            sendDots(id)
-            sendTexts(id, text)
-        }
+        sendDots(id)
+        sendTexts(id, text)
 
         return buildResponse()
     } catch (error) {
