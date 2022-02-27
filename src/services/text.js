@@ -6,7 +6,7 @@
  */
 
 "use strict"
-const { sendMessageApi } = require("../api")
+const { sendMessageApi } = require("./api")
 const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, questions } = require("../config")
 
 exports.sendTexts = (recipientId, receivedMessage) => {
