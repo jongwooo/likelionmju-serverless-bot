@@ -15,7 +15,7 @@ exports.handler = (event, context, callback) => {
         POST: postHandler(event),
     }
 
-    let response = responseMapper[event.httpMethod] || buildError()
+    const response = responseMapper[event.httpMethod] || buildError()
 
     callback(null, response)
 
