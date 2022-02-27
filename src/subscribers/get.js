@@ -13,6 +13,12 @@ exports.getHandler = event => {
     if (event.queryStringParameters) {
         const queryStringParams = event.queryStringParameters
 
+        const statusMapper = {
+            "true, true, true": buildResponse(queryStringParams["hub.challenge"]),
+            "true, false, true": buildError("Incorrect verify token", 401),
+            "false, true, true": buildError("Precondition failed", 412),
+        }
+
         const hasOwnParams = (key, value) => {
             const hasOwnKey = Object.prototype.hasOwnProperty.call(queryStringParams, key)
             return value ? hasOwnKey && queryStringParams[key] === value : hasOwnKey
@@ -22,21 +28,9 @@ exports.getHandler = event => {
             hasOwnParams("hub.mode", "subscribe"),
             hasOwnParams("hub.verify_token", VERIFY_TOKEN),
             hasOwnParams("hub.challenge"),
-        ]
+        ].join(", ")
 
-        switch (status.join(", ")) {
-            case "true, true, true":
-                return buildResponse(queryStringParams["hub.challenge"])
-
-            case "true, false, true":
-                return buildError("Incorrect verify token", 401)
-
-            case "false, true, true":
-                return buildError("Precondition failed", 412)
-
-            default:
-                return buildError()
-        }
+        return statusMapper[status] || buildError()
     }
 
     return buildResponse("likelionMJU Bot")
