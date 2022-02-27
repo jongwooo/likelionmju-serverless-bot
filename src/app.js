@@ -10,13 +10,12 @@ const { getHandler, postHandler } = require("./subscribers")
 const { buildError } = require("./routes")
 
 exports.handler = (event, context, callback) => {
-    let response = {}
     const responseMapper = {
         GET: getHandler(event),
         POST: postHandler(event),
     }
 
-    response = responseMapper[event.httpMethod] || buildError()
+    let response = responseMapper[event.httpMethod] || buildError()
 
     callback(null, response)
 
