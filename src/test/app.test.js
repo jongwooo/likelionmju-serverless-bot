@@ -238,8 +238,8 @@ const httpOtherMethodTests = [
 const buildTest = testCase => {
     const { method, statusCode, caseNum, caseType, toBeReturn } = testCase
 
-    let defaultTestName = `${method}:: status ${statusCode}`
-    let testName = caseNum ? `${defaultTestName} Case ${caseNum}` : defaultTestName
+    const defaultTestName = `${method}:: status ${statusCode}`
+    const testName = caseNum ? `${defaultTestName} Case ${caseNum}` : defaultTestName
 
     it(testName, () => {
         expect(
