@@ -73,7 +73,7 @@ const GET_STATUS_412 = {
     httpMethod: "GET",
     queryStringParameters: {
         "hub.verify_token": VERIFY_TOKEN,
-        "hub.mode": "not subscribe",
+        "hub.mode": "unsubscribe",
         "hub.challenge": CHALLENGE_TOKEN,
     },
 }
