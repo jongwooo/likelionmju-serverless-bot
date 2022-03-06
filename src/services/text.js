@@ -13,7 +13,7 @@ exports.sendTexts = (recipientId, receivedMessage) => {
     let texts = ""
     const quickReplies = []
 
-    for (const token in questions) {
+    Object.keys(questions).forEach(token => {
         if (!IGNORE_REPLY.includes(token)) {
             quickReplies.push({
                 content_type: "text",
@@ -25,7 +25,7 @@ exports.sendTexts = (recipientId, receivedMessage) => {
         if (receivedMessage.includes(token)) {
             texts += `${questions[token]}\n\n`
         }
-    }
+    })
 
     if (receivedMessage.includes("Unit test")) {
         texts = `[Unit test]\n\n-Sender ID: ${recipientId}\n`
