@@ -7,7 +7,7 @@
 
 "use strict"
 const { sendMessageApi } = require("./api")
-const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, questions } = require("../config")
+const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, NODE_RUNTIME_VERSION, questions } = require("../config")
 
 exports.sendTexts = (recipientId, receivedMessage) => {
     let texts = ""
@@ -30,7 +30,7 @@ exports.sendTexts = (recipientId, receivedMessage) => {
     if (receivedMessage.includes("Unit test")) {
         texts = `[Unit test]\n\n-Sender ID: ${recipientId}\n`
         texts += `-Facebook API v ${FACEBOOK_API_VERSION}\n`
-        texts += `-Node Runtime v ${process.versions.node}\n`
+        texts += `-Node Runtime v ${NODE_RUNTIME_VERSION}\n`
     }
 
     if (texts === "") {

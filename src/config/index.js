@@ -7,6 +7,7 @@
 
 "use strict"
 const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN, VERIFY_TOKEN, TEST_USER_ID } = process.env
+const NODE_RUNTIME_VERSION = process.versions.node
 
 const DEFAULT_REPLY =
     "안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n\n아래 제시된 키워드 중에서\n선택하여 질문해주세요."
@@ -32,5 +33,6 @@ module.exports = {
     TEST_USER_ID,
     DEFAULT_REPLY,
     IGNORE_REPLY,
+    NODE_RUNTIME_VERSION,
     questions,
 }
