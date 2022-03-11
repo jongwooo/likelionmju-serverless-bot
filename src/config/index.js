@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict"
 const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN, VERIFY_TOKEN, TEST_USER_ID } = process.env
 const NODE_RUNTIME_VERSION = process.versions.node
 

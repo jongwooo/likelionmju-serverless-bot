@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict"
 const { buildResponse } = require("./response")
 const { buildError } = require("./error")
 

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict"
 const { sendMessageApi } = require("./api")
 const { FACEBOOK_API_VERSION, DEFAULT_REPLY, IGNORE_REPLY, NODE_RUNTIME_VERSION, questions } = require("../config")
 

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict"
 const { buildResponse } = require("./response")
 
 exports.buildError = (message = "Bad request", status = 400) => buildResponse(message, status)

@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict"
 const request = require("request")
 const { FACEBOOK_API_VERSION, PAGE_ACCESS_TOKEN } = require("../../config")
 

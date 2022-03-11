@@ -5,7 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-"use strict"
 const { getHandler, postHandler } = require("./subscribers")
 const { buildError } = require("./routes")
 
