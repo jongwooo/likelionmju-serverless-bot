@@ -1,10 +1,10 @@
 name: PR Test
 
-on: [pull_request]
+on: pull_request
 
 jobs:
     build:
-        runs-on: [ubuntu-latest]
+        runs-on: ubuntu-latest
         if: "!contains(github.event.pull_request.title, 'as a contributor')"
         strategy:
             matrix:
@@ -16,12 +16,28 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
+
+            - name: Get npm cache directory path
+              id: npm-cache-dir
+              run: echo "::set-output name=dir::$(npm config get cache)"
+
+            - uses: actions/cache@v3
+              id: npm-cache
+              with:
+                  path: ${{ steps.npm-cache-dir.outputs.dir }}
+                  key: ${{ runner.os }}-Node-v${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-Node-v${{ matrix.node-version }}-
+
             - name: Install dependencies
-              run: npm ci
+              run: npm install
+
             - name: Lint
               run: npm run lint
+
             - name: Format
               run: npm run format
+
             - name: If fail
               uses: actions/github-script@0.8.0
               with:
