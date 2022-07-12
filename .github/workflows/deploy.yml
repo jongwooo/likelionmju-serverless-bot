@@ -8,7 +8,7 @@ jobs:
         strategy:
             matrix:
                 node-version: [16.x]
-        runs-on: [ubuntu-latest]
+        runs-on: ubuntu-latest
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v1
@@ -16,12 +16,28 @@ jobs:
               uses: actions/setup-node@v1
               with:
                   node-version: ${{ matrix.node-version }}
+
+            - name: Get npm cache directory path
+              id: npm-cache-dir
+              run: echo "::set-output name=dir::$(npm config get cache)"
+
+            - uses: actions/cache@v3
+              id: npm-cache
+              with:
+                  path: ${{ steps.npm-cache-dir.outputs.dir }}
+                  key: ${{ runner.os }}-Node-v${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-Node-v${{ matrix.node-version }}-
+
             - name: Install dependencies
-              run: npm ci
+              run: npm install
+
             - name: Lint
               run: npm run lint
+
             - name: Format
               run: npm run format
+
             - name: Run test code
               env:
                   FACEBOOK_API_VERSION: ${{ secrets.FACEBOOK_API_VERSION }}
@@ -30,12 +46,15 @@ jobs:
                   TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
                   CI: true
               run: npm test
+
             - name: Run npm build
               run: npm run build --if-present
+
             - name: zip
               uses: montudor/action-zip@v0.1.0
               with:
                   args: zip -qq -r ./bundle.zip ./
+
             - name: Default deploy
               uses: appleboy/lambda-action@master
               with:
@@ -44,6 +63,7 @@ jobs:
                   aws_region: ap-northeast-2
                   function_name: chatbot
                   zip_file: bundle.zip
+
             - name: Notify the deploy results with Slack
               uses: 8398a7/action-slack@v3
               with:
