@@ -19,7 +19,7 @@ exports.getHandler = event => {
         }
 
         const hasOwnParams = (key, value) => {
-            const hasOwnKey = Object.prototype.hasOwnProperty.call(queryStringParams, key)
+            const hasOwnKey = Object.hasOwn(queryStringParams, key)
             return value ? hasOwnKey && queryStringParams[key] === value : hasOwnKey
         }
 
