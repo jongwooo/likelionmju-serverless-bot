@@ -7,4 +7,4 @@
 
 const { createResponseMessage } = require("./response")
 
-export const createErrorMessage = (message = "Bad request", status = 400) => createResponseMessage(message, status)
+exports.createErrorMessage = (message = "Bad request", status = 400) => createResponseMessage(message, status)

@@ -8,4 +8,5 @@
 const { createResponseMessage } = require("./response")
 const { createErrorMessage } = require("./error")
 
-export { createResponseMessage, createErrorMessage }
+exports.createResponseMessage = createResponseMessage
+exports.createErrorMessage = createErrorMessage
