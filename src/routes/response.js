@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export const createResponseMessage = (message = "Success", status = 200) => ({
+exports.createResponseMessage = (message = "Success", status = 200) => ({
     statusCode: status,
     body: message,
     headers: { "Content-Type": "application/json;" },
