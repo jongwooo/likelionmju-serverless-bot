@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const { buildResponse, buildError } = require("../routes")
+const { createResponseMessage, createErrorMessage } = require("../routes")
 const { VERIFY_TOKEN } = require("../config")
 
 exports.getHandler = event => {
@@ -13,9 +13,9 @@ exports.getHandler = event => {
         const queryStringParams = event.queryStringParameters
 
         const statusMapper = {
-            "true, true, true": buildResponse(queryStringParams["hub.challenge"]),
-            "true, false, true": buildError("Incorrect verify token", 401),
-            "false, true, true": buildError("Precondition failed", 412),
+            "true, true, true": createResponseMessage(queryStringParams["hub.challenge"]),
+            "true, false, true": createErrorMessage("Incorrect verify token", 401),
+            "false, true, true": createErrorMessage("Precondition failed", 412),
         }
 
         const hasOwnParams = (key, value) => {
@@ -29,8 +29,8 @@ exports.getHandler = event => {
             hasOwnParams("hub.challenge"),
         ].join(", ")
 
-        return statusMapper[status] || buildError()
+        return statusMapper[status] || createErrorMessage()
     }
 
-    return buildResponse("likelionMJU Bot")
+    return createResponseMessage("likelionMJU Bot")
 }

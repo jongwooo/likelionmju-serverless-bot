@@ -5,6 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const { buildResponse } = require("./response")
+const { createResponseMessage } = require("./response")
 
-exports.buildError = (message = "Bad request", status = 400) => buildResponse(message, status)
+export const createErrorMessage = (message = "Bad request", status = 400) => createResponseMessage(message, status)
