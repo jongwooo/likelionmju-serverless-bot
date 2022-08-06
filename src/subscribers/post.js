@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const { buildResponse, buildError } = require("../routes")
+const { createResponseMessage, createErrorMessage } = require("../routes")
 const { sendDots, sendTexts } = require("../services")
 
 exports.postHandler = event => {
@@ -18,8 +18,8 @@ exports.postHandler = event => {
         sendDots(id)
         sendTexts(id, text)
 
-        return buildResponse()
+        return createResponseMessage()
     } catch (error) {
-        return buildError("Internal server error", 500)
+        return createErrorMessage("Internal server error", 500)
     }
 }

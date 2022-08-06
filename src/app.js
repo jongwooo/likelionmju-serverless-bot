@@ -6,7 +6,7 @@
  */
 
 const { getHandler, postHandler } = require("./subscribers")
-const { buildError } = require("./routes")
+const { createErrorMessage } = require("./routes")
 
 exports.handler = (event, context, callback) => {
     const responseMapper = {
@@ -14,9 +14,8 @@ exports.handler = (event, context, callback) => {
         POST: postHandler(event),
     }
 
-    const response = responseMapper[event.httpMethod] || buildError()
+    const response = responseMapper[event.httpMethod] || createErrorMessage()
 
     callback(null, response)
-
     return response
 }
