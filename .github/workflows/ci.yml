@@ -1,11 +1,13 @@
-name: PR Test
+name: CI
 
 on: pull_request
 
 jobs:
-    build:
+    test:
         runs-on: ubuntu-latest
-        if: "!contains(github.event.pull_request.title, 'as a contributor')"
+        if: |
+            !contains(github.event.pull_request.title, 'as a contributor') &&
+            !contains(github.event.head_commit.message, '[skip ci]')
         strategy:
             matrix:
                 node-version: [16.x]
@@ -26,6 +28,15 @@ jobs:
 
             - name: Format
               run: npm run format
+
+            - name: Run test code
+              env:
+                  FACEBOOK_API_VERSION: ${{ secrets.FACEBOOK_API_VERSION }}
+                  PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
+                  VERIFY_TOKEN: ${{ secrets.VERIFY_TOKEN }}
+                  TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
+                  CI: true
+              run: npm test
 
             - name: If fail
               uses: actions/github-script@0.8.0

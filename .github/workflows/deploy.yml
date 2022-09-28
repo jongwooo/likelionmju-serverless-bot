@@ -3,13 +3,12 @@ on:
     push:
         branches: [main]
 jobs:
-    deploy_source:
+    deploy:
         name: Build and Deploy Lambda
         strategy:
             matrix:
                 node-version: [16.x]
         runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
         steps:
             - uses: actions/checkout@v3
             - name: Use Node.js ${{ matrix.node-version }}
@@ -20,21 +19,6 @@ jobs:
 
             - name: Install dependencies
               run: npm install
-
-            - name: Lint
-              run: npm run lint
-
-            - name: Format
-              run: npm run format
-
-            - name: Run test code
-              env:
-                  FACEBOOK_API_VERSION: ${{ secrets.FACEBOOK_API_VERSION }}
-                  PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
-                  VERIFY_TOKEN: ${{ secrets.VERIFY_TOKEN }}
-                  TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
-                  CI: true
-              run: npm test
 
             - name: Run npm build
               run: npm run build --if-present
