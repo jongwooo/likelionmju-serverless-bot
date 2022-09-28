@@ -5,8 +5,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-exports.createResponseMessage = (message = "Success", status = 200) => ({
-    statusCode: status,
+const {
+    STATUS: { SUCCESS },
+} = require("../constants")
+
+exports.createResponseMessage = (message = SUCCESS.message, code = SUCCESS.code) => ({
+    statusCode: code,
     body: message,
     headers: { "Content-Type": "application/json;" },
 })

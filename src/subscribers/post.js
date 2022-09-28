@@ -7,6 +7,9 @@
 
 const { createResponseMessage, createErrorMessage } = require("../routes")
 const { sendDots, sendTexts } = require("../services")
+const {
+    STATUS: { INTERNAL_SERVER_ERROR },
+} = require("../constants")
 
 exports.postHandler = event => {
     try {
@@ -20,6 +23,6 @@ exports.postHandler = event => {
 
         return createResponseMessage()
     } catch (error) {
-        return createErrorMessage("Internal server error", 500)
+        return createErrorMessage(INTERNAL_SERVER_ERROR.message, INTERNAL_SERVER_ERROR.code)
     }
 }
