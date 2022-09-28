@@ -6,5 +6,9 @@
  */
 
 const { createResponseMessage } = require("./response")
+const {
+    STATUS: { BAD_REQUEST },
+} = require("../constants")
 
-exports.createErrorMessage = (message = "Bad request", status = 400) => createResponseMessage(message, status)
+exports.createErrorMessage = (message = BAD_REQUEST.message, code = BAD_REQUEST.code) =>
+    createResponseMessage(message, code)

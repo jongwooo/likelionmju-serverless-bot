@@ -8,13 +8,17 @@
 const app = require("../app")
 const { VERIFY_TOKEN, TEST_USER_ID } = require("../config")
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString()
+const {
+    METHOD: { GET, POST, PUT },
+    STATUS: { GREETING, SUCCESS, BAD_REQUEST, INCORRECT_VERIFY_TOKEN, PRECONDITION_FAILED, INTERNAL_SERVER_ERROR },
+} = require("../constants")
 
 const GET_STATUS_200_CASE_1 = {
-    httpMethod: "GET",
+    httpMethod: GET,
 }
 
 const GET_STATUS_200_CASE_2 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         "hub.verify_token": VERIFY_TOKEN,
         "hub.mode": "subscribe",
@@ -23,7 +27,7 @@ const GET_STATUS_200_CASE_2 = {
 }
 
 const GET_STATUS_400_CASE_1 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         "hub.unused_params": "true",
         // "hub.verify_token": VERIFY_TOKEN,
@@ -33,7 +37,7 @@ const GET_STATUS_400_CASE_1 = {
 }
 
 const GET_STATUS_400_CASE_2 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         "hub.verify_token": VERIFY_TOKEN,
         // "hub.mode": "subscribe"
@@ -42,7 +46,7 @@ const GET_STATUS_400_CASE_2 = {
 }
 
 const GET_STATUS_400_CASE_3 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         // "hub.verify_token": VERIFY_TOKEN,
         "hub.mode": "subscribe",
@@ -51,7 +55,7 @@ const GET_STATUS_400_CASE_3 = {
 }
 
 const GET_STATUS_400_CASE_4 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         // "hub.verify_token": VERIFY_TOKEN,
         // "hub.mode": "subscribe",
@@ -60,7 +64,7 @@ const GET_STATUS_400_CASE_4 = {
 }
 
 const GET_STATUS_401 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         "hub.verify_token": (Math.floor(Math.random() * 1000000) + 1).toString(),
         "hub.mode": "subscribe",
@@ -69,7 +73,7 @@ const GET_STATUS_401 = {
 }
 
 const GET_STATUS_412 = {
-    httpMethod: "GET",
+    httpMethod: GET,
     queryStringParameters: {
         "hub.verify_token": VERIFY_TOKEN,
         "hub.mode": "unsubscribe",
@@ -78,7 +82,7 @@ const GET_STATUS_412 = {
 }
 
 const POST_STATUS_200_CASE_1 = {
-    httpMethod: "POST",
+    httpMethod: POST,
     body: JSON.stringify({
         entry: [
             {
@@ -98,7 +102,7 @@ const POST_STATUS_200_CASE_1 = {
 }
 
 const POST_STATUS_200_CASE_2 = {
-    httpMethod: "POST",
+    httpMethod: POST,
     body: JSON.stringify({
         entry: [
             {
@@ -118,7 +122,7 @@ const POST_STATUS_200_CASE_2 = {
 }
 
 const POST_STATUS_500 = {
-    httpMethod: "POST",
+    httpMethod: POST,
     body: JSON.stringify({
         entry: [
             {
@@ -138,99 +142,99 @@ const POST_STATUS_500 = {
 }
 
 const OTHER_STATUS_400 = {
-    httpMethod: "PUT",
+    httpMethod: PUT,
 }
 
 const httpGetMethodTests = []
 
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 200,
+    method: GET,
+    statusCode: GREETING.code,
     caseNum: 1,
     caseType: GET_STATUS_200_CASE_1,
-    toBeReturn: "likelionMJU Bot",
+    toBeReturn: GREETING.message,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 200,
+    method: GET,
+    statusCode: SUCCESS.code,
     caseNum: 2,
     caseType: GET_STATUS_200_CASE_2,
     toBeReturn: CHALLENGE_TOKEN,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 400,
+    method: GET,
+    statusCode: BAD_REQUEST.code,
     caseNum: 1,
     caseType: GET_STATUS_400_CASE_1,
-    toBeReturn: "Bad request",
+    toBeReturn: BAD_REQUEST.message,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 400,
+    method: GET,
+    statusCode: BAD_REQUEST.code,
     caseNum: 2,
     caseType: GET_STATUS_400_CASE_2,
-    toBeReturn: "Bad request",
+    toBeReturn: BAD_REQUEST.message,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 400,
+    method: GET,
+    statusCode: BAD_REQUEST.code,
     caseNum: 3,
     caseType: GET_STATUS_400_CASE_3,
-    toBeReturn: "Bad request",
+    toBeReturn: BAD_REQUEST.message,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 400,
+    method: GET,
+    statusCode: BAD_REQUEST.code,
     caseNum: 4,
     caseType: GET_STATUS_400_CASE_4,
-    toBeReturn: "Bad request",
+    toBeReturn: BAD_REQUEST.message,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 401,
+    method: GET,
+    statusCode: INCORRECT_VERIFY_TOKEN.code,
     caseNum: null,
     caseType: GET_STATUS_401,
-    toBeReturn: "Incorrect verify token",
+    toBeReturn: INCORRECT_VERIFY_TOKEN.message,
 })
 httpGetMethodTests.push({
-    method: "GET",
-    statusCode: 412,
+    method: GET,
+    statusCode: PRECONDITION_FAILED.code,
     caseNum: null,
     caseType: GET_STATUS_412,
-    toBeReturn: "Precondition failed",
+    toBeReturn: PRECONDITION_FAILED.message,
 })
 
 const httpPostMethodTests = []
 
 httpPostMethodTests.push({
-    method: "POST",
-    statusCode: 200,
+    method: POST,
+    statusCode: SUCCESS.code,
     caseNum: 1,
     caseType: POST_STATUS_200_CASE_1,
-    toBeReturn: "Success",
+    toBeReturn: SUCCESS.message,
 })
 httpPostMethodTests.push({
-    method: "POST",
-    statusCode: 200,
+    method: POST,
+    statusCode: SUCCESS.code,
     caseNum: 2,
     caseType: POST_STATUS_200_CASE_2,
-    toBeReturn: "Success",
+    toBeReturn: SUCCESS.message,
 })
 httpPostMethodTests.push({
-    method: "POST",
-    statusCode: 500,
+    method: POST,
+    statusCode: INTERNAL_SERVER_ERROR.code,
     caseNum: null,
     caseType: POST_STATUS_500,
-    toBeReturn: "Internal server error",
+    toBeReturn: INTERNAL_SERVER_ERROR.message,
 })
 
 const httpOtherMethodTests = [
     {
-        method: "PUT",
-        statusCode: 400,
+        method: PUT,
+        statusCode: BAD_REQUEST.code,
         caseNum: null,
         caseType: OTHER_STATUS_400,
-        toBeReturn: "Bad request",
+        toBeReturn: BAD_REQUEST.message,
     },
 ]
 

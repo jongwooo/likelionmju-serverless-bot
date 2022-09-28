@@ -7,6 +7,9 @@
 
 const { createResponseMessage, createErrorMessage } = require("../routes")
 const { VERIFY_TOKEN } = require("../config")
+const {
+    STATUS: { GREETING, INCORRECT_VERIFY_TOKEN, PRECONDITION_FAILED },
+} = require("../constants")
 
 exports.getHandler = event => {
     if (event.queryStringParameters) {
@@ -14,8 +17,8 @@ exports.getHandler = event => {
 
         const statusMapper = {
             "true, true, true": createResponseMessage(queryStringParams["hub.challenge"]),
-            "true, false, true": createErrorMessage("Incorrect verify token", 401),
-            "false, true, true": createErrorMessage("Precondition failed", 412),
+            "true, false, true": createErrorMessage(INCORRECT_VERIFY_TOKEN.message, INCORRECT_VERIFY_TOKEN.code),
+            "false, true, true": createErrorMessage(PRECONDITION_FAILED.message, PRECONDITION_FAILED.code),
         }
 
         const hasOwnParams = (key, value) => {
@@ -32,5 +35,5 @@ exports.getHandler = event => {
         return statusMapper[status] || createErrorMessage()
     }
 
-    return createResponseMessage("likelionMJU Bot")
+    return createResponseMessage(GREETING.message)
 }
