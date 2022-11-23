@@ -1,0 +1,88 @@
+name: PR
+
+on: pull_request
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+  format:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Format
+        run: npm run format
+
+  test:
+    needs:
+      - lint
+      - format
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 18.x ]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run test code
+        env:
+          FACEBOOK_API_VERSION: ${{ secrets.FACEBOOK_API_VERSION }}
+          PAGE_ACCESS_TOKEN: ${{ secrets.PAGE_ACCESS_TOKEN }}
+          VERIFY_TOKEN: ${{ secrets.VERIFY_TOKEN }}
+          TEST_USER_ID: ${{ secrets.TEST_USER_ID }}
+          CI: true
+        run: npm test
+
+      - name: If fail
+        uses: actions/github-script@0.8.0
+        with:
+          github-token: ${{github.token}}
+          script: |
+            const ref = "${{ github.ref }}"
+            const pull_number = Number(ref.split("/")[2])
+            await github.pulls.createReview({
+              ...context.repo,
+              pull_number,
+              body:"An error has occurred. Please check your code and try again.",
+              event: "REQUEST_CHANGES"
+            })
+        if: failure()
