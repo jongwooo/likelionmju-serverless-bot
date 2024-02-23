@@ -26,7 +26,7 @@ exports.sendTexts = (recipientId, receivedMessage) => {
         }
     })
 
-    if (receivedMessage.includes("Unit test")) {
+    if (receivedMessage === "/test") {
         texts = `[Unit test]\n\n-Sender ID: ${recipientId}\n`
         texts += `-Facebook API v ${FACEBOOK_API_VERSION}\n`
         texts += `-Node Runtime v ${NODE_RUNTIME_VERSION}\n`

@@ -10,7 +10,7 @@ const NODE_RUNTIME_VERSION = process.versions.node
 
 const DEFAULT_REPLY =
     "안녕하세요, 명지대학교(서울)\n멋쟁이 사자처럼 챗봇입니다.\n\n아래 제시된 키워드 중에서\n선택하여 질문해주세요."
-const IGNORE_REPLY = ["Unit test", "멋탈!"]
+const IGNORE_REPLY = ["/test", "멋탈!"]
 const questions = {}
 
 questions["활동 기간"] = "2022.03 - 2022.12"
@@ -21,7 +21,7 @@ questions["지원 방법"] = "지원 기간이 아닙니다."
 questions["활동 계획"] =
     "1년 동안 멋대 자체 온라인 강의 플랫폼과 매주 학교 스터디를 통해 웹 프로그래밍 교육을 이수합니다.\n\n또한, 전국의 멋대 학생들과 아이디어를 공유하는 '아이디어톤', 실제 아이디어가 구현되는 '해커톤'과 같은 이벤트에도 참여하게 됩니다."
 questions["자세한 문의"] = "자세한 문의는 인스타그램 DM(@likelion_mju)을 통해 주시면 감사하겠습니다."
-questions["Unit test"] = "Unit Testing with Jest"
+questions["/test"] = "Unit Testing with Jest"
 questions["멋탈!"] =
     "⊂_ヽ\n    ＼ ＼  Λ＿Λ\n         ＼( ‘ㅅ' ) 두둠칫\n            >　⌒ヽ\n           / 　    へ ＼\n         /　　/ 　   ＼＼\n        ﾚ　ノ　　   ヽ_つ\n      /　 /  두둠칫\n    / 　/|\n   (  (ヽ\n    |　|、 ＼\n    |  丿 ＼⌒)\n    |  |　　) /\n`ノ  )　Lﾉ"
 

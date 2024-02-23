@@ -89,7 +89,7 @@ const POST_STATUS_200_CASE_1 = {
                 messaging: [
                     {
                         message: {
-                            text: "Unit test",
+                            text: "/test",
                         },
                         sender: {
                             id: TEST_USER_ID,
