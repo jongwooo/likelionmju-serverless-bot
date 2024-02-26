@@ -30,9 +30,6 @@
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions/workflows/codeql-analysis.yml">
     <img alt="CodeQL Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/actions/workflows/codeql-analysis.yml/badge.svg">
   </a>
-  <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions?query=workflow%3A%22PR+Test%22">
-    <img alt="PR Test Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/PR%20Test/badge.svg">
-  </a>
   <a href="https://github.com/jongwooo/likelionmju-serverless-bot/actions?query=workflow%3A%22Deploy+to+lambda%22">
     <img alt="Deploy to Lambda Status" src="https://github.com/jongwooo/likelionmju-serverless-bot/workflows/Deploy%20to%20Lambda/badge.svg">
   </a>
