@@ -5,6 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+const { expect, it, describe } = require("@jest/globals")
 const app = require("../app")
 const { VERIFY_TOKEN, TEST_USER_ID } = require("../config")
 const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1_000_000) + 1).toString()
