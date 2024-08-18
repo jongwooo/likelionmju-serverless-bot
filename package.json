@@ -1,39 +1,37 @@
 {
-    "name": "likelionmju-serverless-bot",
-    "private": true,
-    "version": "1.0.0",
-    "description": "likelionMJU Bot is a simple facebook messenger bot to introduce university club;likelionMJU",
-    "main": "src/app.js",
-    "scripts": {
-        "format": "prettier --check  \"**/*.{md,js,json}\"",
-        "format:fix": "prettier --write  \"**/*.{md,js,json}\"",
-        "lint": "eslint .",
-        "test": "jest --config jest.config.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/jongwooo/likelionmju-serverless-bot"
-    },
-    "keywords": [
-        "facebook",
-        "messenger",
-        "chatbot",
-        "serverless"
-    ],
-    "author": "Jongwoo Han <han980817@gmail.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/jongwooo/likelionmju-serverless-bot/issues"
-    },
-    "homepage": "https://m.me/likelionMJU",
-    "dependencies": {
-        "request": "^2.88.2"
-    },
-    "devDependencies": {
-        "eslint": "^8.57.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "jest": "^29.7.0",
-        "prettier": "^3.3.3"
-    }
+  "name": "likelionmju-serverless-bot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "likelionMJU Bot is a simple facebook messenger bot to introduce university club;likelionMJU",
+  "main": "src/app.js",
+  "scripts": {
+    "format": "biome format ./src",
+    "format:fix": "biome format --write ./src",
+    "lint": "biome lint ./src",
+    "test": "jest --config jest.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jongwooo/likelionmju-serverless-bot"
+  },
+  "keywords": [
+    "facebook",
+    "messenger",
+    "chatbot",
+    "serverless"
+  ],
+  "author": "Jongwoo Han <han980817@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jongwooo/likelionmju-serverless-bot/issues"
+  },
+  "homepage": "https://m.me/likelionMJU",
+  "dependencies": {
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0"
+  }
 }

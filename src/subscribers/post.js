@@ -22,7 +22,7 @@ exports.postHandler = event => {
         sendTexts(id, text)
 
         return createResponseMessage()
-    } catch (error) {
+    } catch (_error) {
         return createErrorMessage(INTERNAL_SERVER_ERROR.message, INTERNAL_SERVER_ERROR.code)
     }
 }

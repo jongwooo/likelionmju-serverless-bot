@@ -8,7 +8,7 @@
 const { getHandler, postHandler } = require("./subscribers")
 const { createErrorMessage } = require("./routes")
 
-exports.handler = (event, context, callback) => {
+exports.handler = (event, _context, callback) => {
     const responseMapper = {
         GET: getHandler(event),
         POST: postHandler(event),
