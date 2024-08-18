@@ -7,7 +7,7 @@
 
 const app = require("../app")
 const { VERIFY_TOKEN, TEST_USER_ID } = require("../config")
-const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1000000) + 1).toString()
+const CHALLENGE_TOKEN = (Math.floor(Math.random() * 1_000_000) + 1).toString()
 const {
     METHOD: { GET, POST, PUT },
     STATUS: { GREETING, SUCCESS, BAD_REQUEST, INCORRECT_VERIFY_TOKEN, PRECONDITION_FAILED, INTERNAL_SERVER_ERROR },
